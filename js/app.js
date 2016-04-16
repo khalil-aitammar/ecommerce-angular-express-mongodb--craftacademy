@@ -14,6 +14,10 @@ app .config(['$routeProvider',
             controller: 'detailController'
         }).
         // url page series
+        when('/series', {
+            templateUrl: 'src/Views/films.html',
+            controller: 'seriesController'
+        }).
         when('/film', {
             templateUrl: 'src/Views/films.html',
             controller: 'detailController'
