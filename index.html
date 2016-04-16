@@ -3,22 +3,23 @@
 <head>
     <meta charset="utf-8">
     <title>test ecommece</title>
-    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
-<body>
+<body ng-app="ecomm">
 <div class="container-fluid">
     <div class="row bloctop">
         <!-- navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="col-xs-12 col-sm-12  col-md-7">
-                <div class="navbar-header" >
+                <div class="navbar-header">
                     <a class="navbar-brand" href="#">Shopping</a>
 
                 </div>
-                <ul class="nav navbar-nav" >
+                <ul class="nav navbar-nav">
                     <li class="active"><a href="#">page d'accueil</a></li>
                     <li><a href="#">filmes</a></li>
                     <li><a href="/E_commerce/index.html#/series">series</a></li>
@@ -35,9 +36,42 @@
 
 <div class="container">
     <!-- bloc mid   -->
-    <div class="row blocmid">
+    <div class=" blocmid">
+        <div class="contenu" ng-controller="articleController">
 
+            <!-- article  -->
+            <div class="row">
+                <div class="col-lg-2" ng-repeat="x in film " >
+
+                    <div class="blocarticle">
+                        <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
+                        <p> titre : {{x.articlename}}</p>
+                        <p> discription : {{x.description}}</p>
+                        <p> prix : {{x.prix}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- article fin -->
+            <!-- article  -->
+            <div class="row">
+                <div class="col-lg-2" ng-repeat="x in series " >
+
+                    <div class="blocarticle">
+                        <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
+                        <p> titre : {{x.articlename}}</p>
+                        <p> discription : {{x.description}}</p>
+                        <p> prix : {{x.prix}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- article fin -->
+
+
+
+
+        </div>
     </div>
+</div>
 </div>
 <!-- bloc mid fin  -->
 
@@ -56,7 +90,10 @@
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/angular.js"></script>
+
 <script type="text/javascript" src="js/angular-route.js"></script>
-<script src="app.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="src/controllers/articleController.js"></script>
+
 </body>
 </html>

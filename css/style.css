@@ -1,0 +1,23 @@
+/** css global  **/
+body{
+    background-color: #eae8e7;
+    color: #767270;
+}
+/** css global  **/
+
+.blocmid{
+    margin-top: 220px;
+    background-color: white;
+    -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+    height: 1000px;
+
+
+}
+
+.blocarticle{
+
+    text-align:center;
+    margin: -40px 25px 40px 0px ;
+}
