@@ -1,0 +1,31 @@
+<div class="contenu" ng-controller="articleController">
+
+    <!-- article  -->
+    <div class="row">
+        <div class="col-lg-2" ng-repeat="x in film ">
+
+            <div class="blocarticle">
+                <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
+                <p> {{x.articlename}}</p>
+                <p> {{x.description}}</p>
+                <p> prix : {{x.prix}}</p>
+                <button type="button" class="btn btn-primary">acheté</button>
+            </div>
+        </div>
+    </div>
+    <!-- article fin -->
+    <!-- article  -->
+    <div class="row article">
+        <div class="col-lg-2" ng-repeat="x in series ">
+
+            <div class="blocarticle">
+                <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
+                <p> {{x.articlename}}</p>
+                <p> {{x.description}}</p>
+                <p> prix : {{x.prix}}</p>
+                <button type="button" class="btn btn-primary">acheté</button>
+            </div>
+        </div>
+    </div>
+    <!-- article fin -->
+</div>

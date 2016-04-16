@@ -5,15 +5,18 @@ app .config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         // url page film
-        when('/film', {
+        when('/detail', {
             templateUrl: 'src/Views/article.html',
             controller: 'detailController'
         }).
         // url page series
-
+        when('/film', {
+            templateUrl: 'src/Views/films.html',
+            controller: 'detailController'
+        }).
         // url par defaut
         otherwise({
-            redirectTo: '/index.html'
+            redirectTo: '/film'
         });
     }]);
 

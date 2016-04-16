@@ -22,7 +22,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">page d'accueil</a></li>
                     <li><a href="#">filmes</a></li>
-                    <li><a href="/E_commerce/index.html#/series">series</a></li>
+                    <li><a href="/test-craftacademy/#/detail">series</a></li>
                     <li><a href="#">Documentaires </a></li>
                     <li><a href="#">Emissions TV</a></li>
 
@@ -81,39 +81,7 @@
 <div class="container">
     <!-- bloc mid   -->
     <div class=" blocmid" ng-view>
-        <div class="contenu" ng-controller="articleController">
 
-            <!-- article  -->
-            <div class="row">
-                <div class="col-lg-2" ng-repeat="x in film ">
-
-                    <div class="blocarticle">
-                        <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
-                        <p> {{x.articlename}}</p>
-                        <p> {{x.description}}</p>
-                        <p> prix : {{x.prix}}</p>
-                        <button type="button" class="btn btn-primary" >acheté</button>
-                    </div>
-                </div>
-            </div>
-            <!-- article fin -->
-            <!-- article  -->
-            <div class="row article">
-                <div class="col-lg-2" ng-repeat="x in series ">
-
-                    <div class="blocarticle">
-                        <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
-                        <p> {{x.articlename}}</p>
-                        <p> {{x.description}}</p>
-                        <p> prix : {{x.prix}}</p>
-                        <button type="button" class="btn btn-primary">acheté</button>
-                    </div>
-                </div>
-            </div>
-            <!-- article fin -->
-
-
-        </div>
     </div>
 </div>
 </div>
