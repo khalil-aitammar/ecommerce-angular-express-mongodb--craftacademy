@@ -7,10 +7,10 @@
             <div class="blocarticle">
                 <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
                 <p> {{x.articlename}}</p>
-                <p> {{x.description}}</p>
+
                 <p> prix : {{x.prix}}</p>
                 <button type="button" class="btn btn-primary"  ng-controller="detailController" >
-                    <a href="/test-craftacademy/#/detail{{x.articlename}}:{{x.description}}:{{x.prix}}" ng-click="">acheté</a></button>
+                    <a href="/test-craftacademy/#/detail:{{x.articlename}}:{{x.description}}:{{x.prix}}:{{x.img}}" ng-click="sub()">acheté</a></button>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@ app .config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         // url page film
-        when('/detail:nom:disc:prix', {
+        when('/detail:nom?', {
             templateUrl: 'src/Views/article.html',
             controller: 'detailController'
         }).

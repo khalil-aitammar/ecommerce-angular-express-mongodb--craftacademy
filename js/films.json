@@ -2,19 +2,19 @@
     {
         "articlename": "The Revenant",
         "img":"11.jpg",
-        "description": "1fsfsdfsdfsdfsdfsdfsdfsdfsdfsdf",
+        "description": "disc1",
         "prix": 50
     },
     {
         "articlename": "Les Huit salopards",
         "img":"2.jpg",
-        "description": "2fisdfsdfsdfsdfdfsdfsdfsdfsdfsdfsdflm",
+        "description": "dist2",
         "prix": 50
     },
     {
         "articlename": "Le Réveil de la Force",
         "img":"3.jpg",
-        "description": "film",
+        "description": "dist3",
         "prix": 50
     },
     {
