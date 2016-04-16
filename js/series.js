@@ -1,38 +1,38 @@
 [
     {
         "articlename": "The Revenant2",
-        "img":"11.jpg",
+        "img":"7.jpg",
         "description": "film",
-        "prix": 50
+        "prix": 8
     },
     {
         "articlename": "Les Huit salopards2",
-        "img":"2.jpg",
+        "img":"8.jpg",
         "description": "film",
-        "prix": 50
+        "prix": 9
     },
     {
         "articlename": "Le Réveil de la Force2",
-        "img":"3.jpg",
+        "img":"9.jpg",
         "description": "film",
-        "prix": 50
+        "prix": 22
     },
     {
         "articlename": "Hunger Games2",
-        "img":"4.jpg",
+        "img":"10.jpg",
         "description": "film",
-        "prix": 50
+        "prix": 11
     },
     {
         "articlename": "nuances de grey2",
-        "img":"5.jpg",
+        "img":"11.jpg",
         "description": "film",
-        "prix": 50
+        "prix": 40
     },
     {
         "articlename": "joy2",
-        "img":"6.jpg",
+        "img":"12.jpg",
         "description": "film",
-        "prix": 50
+        "prix": 35
     }
 ]

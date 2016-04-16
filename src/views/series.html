@@ -1,0 +1,34 @@
+
+<div class="contenu" ng-controller="seriesController">
+
+    <!-- article  -->
+    <div class="row">
+        <div class="col-lg-2" ng-repeat="x in seriessss | filter : myvar">
+
+            <div class="blocarticle">
+                <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
+                <p> {{x.articlename}}</p>
+
+                <p> prix : {{x.prix}}</p>
+                <button type="button" class="btn btn-primary"  ng-controller="detailController" >
+                    <a class="lien" style="text-decoration:none;color:#000" href="/test-craftacademy/#/detail:{{x.articlename}}:{{x.description}}:{{x.prix}}:{{x.img}}" ng-click="sub()">acheter</a></button>
+            </div>
+        </div>
+    </div>
+    <!-- article fin -->
+    <!-- article  -->
+    <div class="row article">
+        <div class="col-lg-2 col-md-2 col-sx-2" ng-repeat="x in seriessss | filter : myvar ">
+
+            <div class="blocarticle">
+                <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
+                <p> {{x.articlename}}</p>
+                <p> {{x.description}}</p>
+                <p> prix : {{x.prix}}</p>
+
+                <button style="text-decoration:none;color:#000" type="button" class="btn btn-primary" >acheter</button>
+            </div>
+        </div>
+    </div>
+    <!-- article fin -->
+</div>
