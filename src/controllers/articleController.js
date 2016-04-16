@@ -1,10 +1,9 @@
+
 app.controller('articleController', function ($scope, $http) {
-
-
     
         $http({
             method: 'GET',
-            url: './js/films.js'
+            url: './js/films.json'
         }).then(function successCallback(response) {
             $scope.articles =response;
 

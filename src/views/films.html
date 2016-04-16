@@ -9,7 +9,8 @@
                 <p> {{x.articlename}}</p>
                 <p> {{x.description}}</p>
                 <p> prix : {{x.prix}}</p>
-                <button type="button" class="btn btn-primary">acheté</button>
+                <button type="button" class="btn btn-primary"  ng-controller="detailController" >
+                    <a href="/test-craftacademy/#/detail{{x.articlename}}:{{x.description}}:{{x.prix}}" ng-click="">acheté</a></button>
             </div>
         </div>
     </div>
@@ -23,7 +24,8 @@
                 <p> {{x.articlename}}</p>
                 <p> {{x.description}}</p>
                 <p> prix : {{x.prix}}</p>
-                <button type="button" class="btn btn-primary">acheté</button>
+
+                <button type="button" class="btn btn-primary" >acheté</button>
             </div>
         </div>
     </div>
