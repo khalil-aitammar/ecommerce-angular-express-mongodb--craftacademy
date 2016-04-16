@@ -7,7 +7,7 @@ app.controller('articleController', function ($scope, $http) {
             url: './js/films.js'
         }).then(function successCallback(response) {
             $scope.articles =response;
-console.log($scope.articles);
+
            $scope.film= $scope.articles.data;
         
         }).then(function () {
@@ -19,7 +19,7 @@ console.log($scope.articles);
         url: './js/series.js'
     }).then(function successCallback(response) {
         $scope.seris =response;
-        console.log($scope.seris);
+
         $scope.series= $scope.seris.data;
 
     }).then(function () {

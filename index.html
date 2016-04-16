@@ -80,7 +80,7 @@
 
 <div class="container">
     <!-- bloc mid   -->
-    <div class=" blocmid">
+    <div class=" blocmid" ng-view>
         <div class="contenu" ng-controller="articleController">
 
             <!-- article  -->
@@ -92,7 +92,7 @@
                         <p> {{x.articlename}}</p>
                         <p> {{x.description}}</p>
                         <p> prix : {{x.prix}}</p>
-                        <button type="button" class="btn btn-primary">acheté</button>
+                        <button type="button" class="btn btn-primary" >acheté</button>
                     </div>
                 </div>
             </div>
@@ -138,6 +138,7 @@
 <script type="text/javascript" src="js/angular-route.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="src/controllers/articleController.js"></script>
+<script type="text/javascript" src="src/controllers/detailController.js"></script>
 
 </body>
 </html>
