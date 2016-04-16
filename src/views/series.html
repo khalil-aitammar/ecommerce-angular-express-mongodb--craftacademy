@@ -3,7 +3,7 @@
 
     <!-- article  -->
     <div class="row">
-        <div class="col-lg-2" ng-repeat="x in seriessss | filter : myvar">
+        <div class="col-lg-2" ng-repeat="x in seriessss | x : myvar">
 
             <div class="blocarticle">
                 <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
@@ -18,7 +18,7 @@
     <!-- article fin -->
     <!-- article  -->
     <div class="row article">
-        <div class="col-lg-2 col-md-2 col-sx-2" ng-repeat="x in seriessss | filter : myvar ">
+        <div class="col-lg-2 col-md-2 col-sx-2" ng-repeat="x in seriessss | x : myvar ">
 
             <div class="blocarticle">
                 <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
