@@ -19,12 +19,12 @@
                     <a class="navbar-brand" href="#">Shopping</a>
 
                 </div>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" ng-controller="articleController" >
                     <li class="active"><a href="#">page d'accueil</a></li>
-                    <li><a href="#">filmes</a></li>
-                    <li><a href="/test-craftacademy/#/detail">series</a></li>
-                    <li><a href="#">Documentaires </a></li>
-                    <li><a href="#">Emissions TV</a></li>
+                    <li><a href="#">{{cat[0].nom}}</a></li>
+                    <li><a href="#">{{cat[1].nom}}</a></li>
+                    <li><a href="#">{{cat[2].nom}} </a></li>
+
 
                 </ul>
             </div>
@@ -107,6 +107,7 @@
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="src/controllers/articleController.js"></script>
 <script type="text/javascript" src="src/controllers/detailController.js"></script>
+<script type="text/javascript" src="src/controllers/categoriesController.js"></script>
 
 </body>
 </html>

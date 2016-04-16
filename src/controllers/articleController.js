@@ -1,6 +1,7 @@
-
 app.controller('articleController', function ($scope, $http) {
-    
+
+
+
         $http({
             method: 'GET',
             url: './js/films.json'
@@ -11,7 +12,7 @@ app.controller('articleController', function ($scope, $http) {
         
         }).then(function () {
           
-        })
+        }),
     
     $http({
         method: 'GET',
@@ -23,9 +24,20 @@ app.controller('articleController', function ($scope, $http) {
 
     }).then(function () {
 
+    }),
+
+    $http({
+        method: 'GET',
+        url: './js/categories.json'
+    }).then(function successCallback(response) {
+        $scope.cath =response;
+
+        $scope.cat= $scope.cath.data;
+        console.log('categ', $scope.cat[1]);
+
+    }).then(function () {
+
     })
-
-
 
 });
 
