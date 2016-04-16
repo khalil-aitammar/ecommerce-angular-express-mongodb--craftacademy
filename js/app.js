@@ -9,6 +9,10 @@ app .config(['$routeProvider',
             templateUrl: 'src/Views/article.html',
             controller: 'detailController'
         }).
+        when('/panier:panier?', {
+            templateUrl: 'src/Views/panier.html',
+            controller: 'detailController'
+        }).
         // url page series
         when('/film', {
             templateUrl: 'src/Views/films.html',

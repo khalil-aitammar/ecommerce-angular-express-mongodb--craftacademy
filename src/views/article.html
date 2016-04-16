@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-12">
 
         <div  ng-controller="detailController">
 
@@ -8,10 +8,13 @@
 
             <p> discrkha{{disc}}</p>
 
-
-         <br>
-
+            <div class="row"  >
+                nombre d'articles pour la commande : <input ng-model="nmb">
+                <button type="button" class="btn btn-success"><a href="/test-craftacademy/#/panier:{{nmb}}:{{nomfilm}}">valider</a></button>
+            </div>
 
         </div>
     </div>
+
+
 </div>
