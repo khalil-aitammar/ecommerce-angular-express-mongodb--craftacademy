@@ -24,9 +24,12 @@
                     <li><a href="#">{{cat[0].nom}}</a></li>
                     <li><a href="#">{{cat[1].nom}}</a></li>
                     <li><a href="#">{{cat[2].nom}} </a></li>
-
-
                 </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Recherche" ng-model="myvar">
+                    </div>
+                </form>
             </div>
             <!-- navbar fin -->
 
@@ -108,6 +111,8 @@
 <script type="text/javascript" src="src/controllers/articleController.js"></script>
 <script type="text/javascript" src="src/controllers/detailController.js"></script>
 <script type="text/javascript" src="src/controllers/categoriesController.js"></script>
+<script type="text/javascript" src="src/controllers/loginController.js"></script>
+
 
 
 
