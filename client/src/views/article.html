@@ -8,13 +8,13 @@
 
             <p> description : {{film.description}}</p>
 
-            <div class="row"  >
-                nombre d'articles pour la commande : <input ng-model="nmb">
-                <button type="button" class="btn btn-success"><a href="/#/panier:{{nmb}}:{{nomfilm}}">valider</a></button>
-            </div>
+
 
         </div>
     </div>
-
+    <div class="row"  >
+        nombre d'articles pour la commande : <input ng-model="nmb">
+        <button type="button" class="btn btn-success" ng-controller="detailController"><a href="/#/panier:{{nmb}}">valider</a></button>
+    </div>
 
 </div>

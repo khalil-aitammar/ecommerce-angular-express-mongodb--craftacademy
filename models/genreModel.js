@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 
 var genreModel = new Schema ({
     name : String,
-    
 },{collection: 'genres'});
 
 

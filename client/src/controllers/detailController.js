@@ -1,5 +1,6 @@
 'use strict';
 app.controller('detailController', function ($scope, $http, $routeParams) {
+    console.log($scope.nmb);
   var filmid=$routeParams.id;
         $http({
             method: 'GET',

@@ -3,34 +3,33 @@ app.controller('loginController', function ($scope, $http, $routeParams) {
     $scope.sub = function () {
 
         console.log($scope.login, $scope.mp);
-            var data ={
+
+        var data = $.param({
+            json: JSON.stringify({
                 username: $scope.login,
                 password: $scope.mp
-            };
+            })
+        });
 
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json;'
+        $http.post('/user/login',
+            {username: $scope.login, password: $scope.mp})
+            // handle success
+            .success(function (data, status) {
+                if(status === 200 && data.status){
+                    $scope.formup = true;
+                    console.log('cest bon  login');
+                } else {
+                    console.log('erreur login');
                 }
-            }
-
-            $http.post('/user/login', data, config)
-                .success(function (data, status, headers, config) {
-                    console.log("login good");
-                    $scope.PostDataResponse = data;
-
-                })
-                .error(function (data, status, header, config) {
-                    console.log("login good");
-                    $scope.ResponseDetails = "Data: " + data +
-                        "<hr />status: " + status +
-                        "<hr />headers: " + header +
-                        "<hr />config: " + config;
-                });
+            })
+            // handle error
+            .error(function (data) {
+               console.log('erreur login');
+            });
 
 
 
-    };
+    }
 
 });
 
