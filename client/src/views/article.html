@@ -3,14 +3,14 @@
 
         <div  ng-controller="detailController">
 
-            <p> titre : {{nomfilm}}</p>
-            <img  src="img/{{img}}" alt="">
+            <p> titre : {{film.titre}}</p>
+            <img  src="img/films/{{film.url_img}}" alt="">
 
-            <p> discrkha{{disc}}</p>
+            <p> description : {{film.description}}</p>
 
             <div class="row"  >
                 nombre d'articles pour la commande : <input ng-model="nmb">
-                <button type="button" class="btn btn-success"><a href="/test-craftacademy/#/panier:{{nmb}}:{{nomfilm}}">valider</a></button>
+                <button type="button" class="btn btn-success"><a href="/#/panier:{{nmb}}:{{nomfilm}}">valider</a></button>
             </div>
 
         </div>

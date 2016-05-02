@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var filmModel = new Schema ({
     titre : String,
-    discription : String,
+    description : String,
     genre : String,
     url_img : String,
     prix : Number,

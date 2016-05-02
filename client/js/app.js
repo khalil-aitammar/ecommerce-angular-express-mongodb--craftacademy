@@ -1,13 +1,11 @@
 'use strict';
 var app = angular.module('ecomm', ['ngRoute'] );
-
-
 //configuration de routeProvider
 app .config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         // url page film
-        when('/detail:nom?', {
+        when('/detail:id?', {
             templateUrl: 'src/Views/article.html',
             controller: 'detailController'
         }).

@@ -3,15 +3,15 @@
 
     <!-- article  -->
     <div class="row">
-        <div class="col-lg-2" ng-repeat="x in film">
+        <div class="col-lg-2" ng-repeat="x in film | filter : myvar">
 
             <div class="blocarticle">
-                <img class="article img-thumbnail" src="{{x.url_img}}" alt="">
-                <p> {{x.articlename}}</p>
+                <img class="article img-thumbnail" src="img/films/{{x.url_img}}" alt="affiche filp">
+                <p> {{x.titre}}</p>
 
                 <p> prix : {{x.prix}}</p>
                 <button type="button" class="btn btn-primary"  ng-controller="detailController" >
-                    <a class="lien" style="text-decoration:none;color:#000" href="/test-craftacademy/#/detail:{{x.articlename}}:{{x.description}}:{{x.prix}}:{{x.img}}" ng-click="sub()">acheter</a></button>
+                    <a class="lien" style="text-decoration:none;color:#000" href="/#/detail{{x._id}}" >acheter</a></button>
             </div>
         </div>
     </div>

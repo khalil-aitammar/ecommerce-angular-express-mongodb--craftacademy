@@ -30,7 +30,7 @@ var routes = function(Film){
         });
 
     filmRouter.use('/:filmId', function(req,res,next){
-        film.findById(req.params.filmId, function(err,film){
+        Film.findById(req.params.filmId, function(err,film){
             if(err)
                 res.status(500).send(err);
             else if(film)
