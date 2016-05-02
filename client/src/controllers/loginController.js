@@ -1,33 +1,36 @@
-app.controller('loginController', function ($scope, $http) {
-    $scope.login = "";
-    $scope.mp = "";
+app.controller('loginController', function ($scope, $http, $routeParams) {
+
     $scope.sub = function () {
-        //  $location.path('/accueil');
-        $http({
-            method: 'GET',
-            url: './js/data.json'
-        }).then(function successCallback(response) {
 
-            for (var i = 0; i < response.data.length; i++) {
-                console.log($scope.login, $scope.mp);
-                if (response.data[i].name == $scope.login && response.data[i].mp == $scope.mp) {
+        console.log($scope.login, $scope.mp);
+            var data ={
+                username: $scope.login,
+                password: $scope.mp
+            };
 
-                    $scope.formup = true;
-
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json;'
                 }
             }
 
-        }).then(function () {
-            if ($scope.formup==false){
-                alert("erreur");
-            }
-        })
+            $http.post('/user/login', data, config)
+                .success(function (data, status, headers, config) {
+                    console.log("login good");
+                    $scope.PostDataResponse = data;
+
+                })
+                .error(function (data, status, header, config) {
+                    console.log("login good");
+                    $scope.ResponseDetails = "Data: " + data +
+                        "<hr />status: " + status +
+                        "<hr />headers: " + header +
+                        "<hr />config: " + config;
+                });
+
+
+
     };
-
-
-
-
-
 
 });
 
