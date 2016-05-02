@@ -2,16 +2,17 @@ var mongoose = require('mongoose');
  Schema = mongoose.Schema;
 
 
-var filmsShema = new Schema ({
+var filmModel = new Schema ({
     titre : String,
     discription : String,
     genre : String,
-    prix : number,
+    url_img : String,
+    prix : Number,
     create_date:{
         type: Date,
         default: Date.now
     },
-},{collection: 'books'});
+},{collection: 'films'});
 
- var film = mongoose.model('film',filmsShema);
-model.exports= film;
+
+module.exports= mongoose.model('film', filmModel);

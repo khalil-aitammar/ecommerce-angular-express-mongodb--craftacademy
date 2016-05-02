@@ -1,11 +1,11 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser');
-
+bson = require('bson');
 
 var db = mongoose.connect('mongodb://localhost/ecom');
 
-var Book = require('./models/film');
+var Book = require('./models/filmModel');
 
 var app = express();
 
