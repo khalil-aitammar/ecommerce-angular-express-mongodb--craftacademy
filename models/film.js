@@ -5,8 +5,13 @@ var mongoose = require('mongoose');
 var filmsShema = new Schema ({
     titre : String,
     discription : String,
-    prix : number
-});
+    genre : String,
+    prix : number,
+    create_date:{
+        type: Date,
+        default: Date.now
+    },
+},{collection: 'books'});
 
  var film = mongoose.model('film',filmsShema);
 model.exports= film;
