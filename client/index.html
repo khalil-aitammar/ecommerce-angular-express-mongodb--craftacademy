@@ -19,11 +19,9 @@
                     <a class="navbar-brand" href="#">Shopping</a>
 
                 </div>
-                <ul class="nav navbar-nav" ng-controller="articleController">
+                <ul class="nav navbar-nav">
                     <li class="active"><a href="#">page d'accueil</a></li>
-                    <li><a href="#">{{cat[0].nom}}</a></li>
-                    <li><a href="#">{{cat[1].nom}}</a></li>
-                    <li><a href="#">{{cat[2].nom}} </a></li>
+
                 </ul>
                 <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
@@ -32,10 +30,21 @@
                 </form>
 
             </div>
-            <div class="col-md-5" loginrow>
+            <div class="col-md-5" loginrow ng-controller="loginController" ng-init="formup=true">
                 <div class="row ">
+
                     <div class="col-md-6 col-md-offset-3">
-                        <div class="panel panel-login">
+                        <div ng-hide="formup">
+                            <div class="authentification">
+                                <img src="https://maxcdn.icons8.com/Color/PNG/48/Business/approve-48.png"
+                                     title="Approve" width="48">
+                             {{login}}&nbsp;
+                                <a href="#" class="btn btn-info btn-md">
+                                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel panel-login" ng-hide="!formup">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
@@ -50,15 +59,13 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form id="login-form" method="post"
-                                              role="form"
-                                              style="display: block;">
+                                        <form id="login-form" role="form" style="display: block;">
                                             <div class="form-group">
-                                                <input type="text" name="username" id="username" tabindex="1"
-                                                       class="form-control" placeholder="Username" value="">
+                                                <input type="text" name="username" tabindex="1"
+                                                       class="form-control" placeholder="Username" ng-model="login">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" id="password" tabindex="2"
+                                                <input type="password" name="password" tabindex="2" ng-model="mp"
                                                        class="form-control" placeholder="Password">
                                             </div>
                                             <div class="form-group text-center">
@@ -69,8 +76,8 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
-                                                        <input type="submit" name="login-submit" id="login-submit"
-                                                               tabindex="4"
+                                                        <input type="submit"
+                                                               tabindex="4" ng-click="sub()"
                                                                class="form-control btn btn-login" value="Log In">
                                                     </div>
                                                 </div>
@@ -109,6 +116,7 @@
                                         </form>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
