@@ -3,19 +3,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
-var panier = new Schema({
-    nombreArticle: Number,
-    create_date:{
-        type: Date,
-        default: Date.now
-    }
-});
 
 
 var User = new Schema({
     username: String,
     password: String,
-    panier:[panier]
+    panier  : Schema.ObjectId
 },{collection: 'Users'});
 
 User.plugin(passportLocalMongoose);

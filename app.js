@@ -16,8 +16,7 @@ var db = mongoose.connect('mongodb://localhost/ecom');
 
 //import des model
 var Film = require('./models/filmModel');
-var Serie = require('./models/seriesModel');
-var Genre = require('./models/genreModel');
+
 var User = require('./models/userModel');
 var userRoutes = require('./routes/userRoutes');
 

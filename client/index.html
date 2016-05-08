@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-</head>
+
 <body ng-app="ecomm">
 <div class="container-fluid">
     <div class="row bloctop">
         <!-- navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="col-xs-12 col-sm-12  col-md-7">
+            <div class="col-md-7">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Shopping</a>
 
                 </div>
-                <ul class="nav navbar-nav" ng-controller="articleController" >
+                <ul class="nav navbar-nav" ng-controller="articleController">
                     <li class="active"><a href="#">page d'accueil</a></li>
                     <li><a href="#">{{cat[0].nom}}</a></li>
                     <li><a href="#">{{cat[1].nom}}</a></li>
@@ -30,63 +30,150 @@
                         <input type="text" class="form-control" placeholder="Recherche" ng-model="myvar">
                     </div>
                 </form>
+
             </div>
-            <!-- navbar fin -->
+            <div class="col-md-5" loginrow>
+                <div class="row ">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-login">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <a href="#" class="active" id="login-form-link">Login</a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="#" id="register-form-link">Register</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form id="login-form" method="post"
+                                              role="form"
+                                              style="display: block;">
+                                            <div class="form-group">
+                                                <input type="text" name="username" id="username" tabindex="1"
+                                                       class="form-control" placeholder="Username" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" id="password" tabindex="2"
+                                                       class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <input type="checkbox" tabindex="3" class="" name="remember"
+                                                       id="remember">
+                                                <label for="remember"> Remember Me</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                        <input type="submit" name="login-submit" id="login-submit"
+                                                               tabindex="4"
+                                                               class="form-control btn btn-login" value="Log In">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                        <form id="register-form" action="http://phpoll.com/register/process"
+                                              method="post"
+                                              role="form" style="display: none;">
+                                            <div class="form-group">
+                                                <input type="text" name="username" id="username" tabindex="1"
+                                                       class="form-control" placeholder="Username" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" name="email" id="email" tabindex="1"
+                                                       class="form-control"
+                                                       placeholder="Email Address" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" id="password" tabindex="2"
+                                                       class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="confirm-password" id="confirm-password"
+                                                       tabindex="2" class="form-control" placeholder="Confirm Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                        <input type="submit" name="register-submit" id="register-submit"
+                                                               tabindex="4" class="form-control btn btn-register"
+                                                               value="Register Now">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
         </nav>
+
+        <!-- navbar fin -->
+
+
     </div>
-</div>
-<!-- Carousel -->
+    <!-- Carousel -->
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img class="first-slide" src="http://wallpapershome.com/images/pages/pic_h/7269.jpg" alt="First slide">
-            <div class="container">
-                <div class="carousel-caption">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img class="first-slide" src="http://wallpapershome.com/images/pages/pic_h/7269.jpg" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption">
 
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="second-slide" src="https://images7.alphacoders.com/672/672663.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="third-slide" src="https://images4.alphacoders.com/653/653613.jpg" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption">
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="item">
-            <img class="second-slide" src="https://images7.alphacoders.com/672/672663.jpg" alt="Second slide">
-            <div class="container">
-                <div class="carousel-caption">
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="third-slide" src="https://images4.alphacoders.com/653/653613.jpg" alt="Third slide">
-            <div class="container">
-                <div class="carousel-caption">
+    <div class="container">
 
-                </div>
-            </div>
+
+        <div class=" blocmid" ng-view>
+
         </div>
     </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<div class="container">
-    <!-- bloc mid   -->
-    <div class=" blocmid" ng-view>
-
-    </div>
-</div>
 </div>
 <!-- bloc mid fin  -->
 
@@ -113,8 +200,6 @@
 <script type="text/javascript" src="src/controllers/categoriesController.js"></script>
 <script type="text/javascript" src="src/controllers/loginController.js"></script>
 <script type="text/javascript" src="src/controllers/seriesController.js"></script>
-
-
 
 
 </body>
