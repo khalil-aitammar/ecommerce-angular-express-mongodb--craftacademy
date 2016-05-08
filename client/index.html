@@ -38,10 +38,13 @@
                             <div class="authentification">
                                 <img src="https://maxcdn.icons8.com/Color/PNG/48/Business/approve-48.png"
                                      title="Approve" width="48">
-                             {{login}}&nbsp;
-                                <a href="#" class="btn btn-info btn-md">
-                                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                                {{login}}&nbsp;
+                                <a href="#" class="btn btn-info ">
+                                    <input type="submit"
+                                           tabindex="4" ng-click="logout()"
+                                           class="btn btn-info" value="Log In">
                                 </a>
+
                             </div>
                         </div>
                         <div class="panel panel-login" ng-hide="!formup">

@@ -1,8 +1,26 @@
-app.controller('loginController', function ($scope, $http, $routeParams) {
+app.controller('loginController', function ($scope, $http) {
+    
+    
+    $scope.logout = function () {
+        $http.get('/user/logout')
+            .success(function (data, status) {
+                if(status === 200 && data.status){
+                    $scope.formup = true;
+                    console.log('lougout');
+                } else {
+                    console.log('erreur lougout');
+                }
+            })
+            // handle error
+            .error(function (data) {
+                console.log('erreur lougout');
+            });
+    }
+
 
     $scope.sub = function () {
 
-        console.log("doné user",$scope.login, $scope.mp);
+        console.log("doné user", $scope.login, $scope.mp);
 
         var data = $.param({
             json: JSON.stringify({
@@ -15,7 +33,7 @@ app.controller('loginController', function ($scope, $http, $routeParams) {
             {username: $scope.login, password: $scope.mp})
 
             .success(function (data, status) {
-                if(status === 200 && data.status){
+                if (status === 200 && data.status) {
                     $scope.formup = false;
                     console.log('cest bon  login');
                 } else {
@@ -24,9 +42,8 @@ app.controller('loginController', function ($scope, $http, $routeParams) {
             })
             // handle error
             .error(function (data) {
-               console.log('erreur login');
+                console.log('erreur login');
             });
-
 
 
     }
