@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 Schema = mongoose.Schema;
-var filmModel=require('./filmModel');
+
 
 var panierModel = new Schema ({
-    articlebey: [filmModel],
+    film: [{ type: Schema.Types.ObjectId, ref: 'film' }],
     create_date:{
         type: Date,
         default: Date.now

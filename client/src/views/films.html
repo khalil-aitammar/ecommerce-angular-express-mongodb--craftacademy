@@ -12,23 +12,26 @@
                 <p> prix : {{x.prix}}</p>
                 <button type="button" class="btn btn-primary"  ng-controller="detailController" >
                     <a class="lien" style="text-decoration:none;color:#000" href="/#/detail{{x._id}}" >acheter</a></button>
+                <figcaption>
+                    <h3>film, 55$</h3>
+                    <button ng-click="addToCart(x);">Add to cart</button>
+                </figcaption>
+            </div>
+            <div ng-if="cart.length" class="shopping-cart">
+                <h2>{{cart.length}} items in cart, {{getCartPrice()}}$</h2>
+
+			<span class="cart-item th radius" ng-repeat="product in cart">
+				<img ng-src="{{product.image}}" title="{{product.title}}"/>
+				<span class="badge" ng-show="product.quantity > 1">
+					x{{product.quantity}}
+				</span>
+			</span>
+
+                <button ng-click="checkout();">Checkout</button>
             </div>
         </div>
     </div>
     <!-- article fin -->
-    <!-- article  -->
-    <div class="row article">
-        <div class="col-lg-2 col-md-2 col-sx-2" ng-repeat="x in series ">
 
-            <div class="blocarticle">
-                <img class="article img-thumbnail" src="img/{{x.img}}" alt="">
-                <p> {{x.articlename}}</p>
-                <p> {{x.description}}</p>
-                <p> prix : {{x.prix}}</p>
 
-                <button style="text-decoration:none;color:#000" type="button" class="btn btn-primary" >acheter</button>
-            </div>
-        </div>
-    </div>
-    <!-- article fin -->
 </div>

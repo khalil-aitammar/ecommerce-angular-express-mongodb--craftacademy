@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('ecomm', ['ngRoute'],['ngCookies'] );
+var app = angular.module('ecomm', ['ngRoute','ngAnimate'] );
 //configuration de routeProvider
 app .config(['$routeProvider',
     function($routeProvider) {
@@ -20,7 +20,7 @@ app .config(['$routeProvider',
         }).
         when('/film', {
             templateUrl: 'src/Views/films.html',
-            controller: 'detailController'
+            controller: 'articleController'
         }).
         // url par defaut
         otherwise({
@@ -28,6 +28,8 @@ app .config(['$routeProvider',
         });
     }]);
 
+
+   
 
 
 $(function bloclogin() {
