@@ -30,9 +30,28 @@ app .config(['$routeProvider',
 
 
 
-$(function() {
+$(function bloclogin() {
 
     $(".panel-body").hide();
+    $("#alert-success").hide();
+    $("#alert-danger").hide();
+
+    $("#alert-success").mouseover( function() {
+        $("#alert-success").hide(1500);
+    });
+
+    $("#alert-danger").mouseover( function() {
+        $("#alert-success").hide(1500);
+    });
+    $('#register-form-link').click(function(e) {
+        $(".panel-body").show();
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+
     $('#login-form-link').click(function(e) {
         $(".panel-body").show();
         $("#login-form").delay(100).fadeIn(100);

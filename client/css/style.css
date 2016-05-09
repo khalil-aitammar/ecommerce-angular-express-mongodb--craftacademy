@@ -55,6 +55,26 @@ a{
 }
 /* css  CAROUSEL fin */
 
+.alert{
+    position: fixed;
+    display: inline-block;
+    top:50px;
+    z-index: 999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* css authentification  */
 .panel-login {
     border-color: #ccc;
     -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);

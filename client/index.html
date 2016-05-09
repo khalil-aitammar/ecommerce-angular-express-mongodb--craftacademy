@@ -87,17 +87,15 @@
                                             </div>
 
                                         </form>
-                                        <form id="register-form" action="http://phpoll.com/register/process"
-                                              method="post"
-                                              role="form" style="display: none;">
+                                        <form id="register-form" role="form" style="display: none;">
                                             <div class="form-group">
                                                 <input type="text" name="username" id="username" tabindex="1"
-                                                       class="form-control" placeholder="Username" value="">
+                                                       class="form-control" placeholder="Username" ng-model="username">
                                             </div>
                                             <div class="form-group">
                                                 <input type="email" name="email" id="email" tabindex="1"
                                                        class="form-control"
-                                                       placeholder="Email Address" value="">
+                                                       placeholder="Email Address" ng-model="usermail">
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" id="password" tabindex="2"
@@ -105,12 +103,13 @@
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="confirm-password" id="confirm-password"
-                                                       tabindex="2" class="form-control" placeholder="Confirm Password">
+                                                       tabindex="2" class="form-control" placeholder="Confirm Password"
+                                                       ng-model="passuser">
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
-                                                        <input type="submit" name="register-submit" id="register-submit"
+                                                        <input type="submit" ng-click="register()"
                                                                tabindex="4" class="form-control btn btn-register"
                                                                value="Register Now">
                                                     </div>
@@ -128,7 +127,14 @@
             </div>
 
         </nav>
-
+        <div class="alert alert-success" id="alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        </div>
+        <div class="alert alert-danger" id="alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+        </div>
         <!-- navbar fin -->
 
 

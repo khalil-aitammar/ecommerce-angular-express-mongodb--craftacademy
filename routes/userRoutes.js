@@ -6,7 +6,7 @@ var User = require('../models/userModel');
 
 
 router.post('/register', function(req, res) {
-    User.register(new User({ username: req.body.username }),
+    User.register(new User({ username: req.body.username, usermail: req.body.usermail }),
         req.body.password, function(err, account) {
             if (err) {
                 return res.status(500).json({

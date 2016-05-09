@@ -47,6 +47,32 @@ app.controller('loginController', function ($scope, $http) {
 
 
     }
+    $scope.register = function () {
+
+        console.log("doné user", $scope.username, $scope.usermail,$scope.passuser);
+
+        $http.post('/user/register',
+            {username: $scope.username, password: $scope.passuser, usermail:$scope.usermail })
+
+            .success(function (data, status) {
+                if (status === 200 && data.status) {
+                    $(".panel-body").hide();
+                    $("#alert-success").show().delay(800);
+                    
+                    console.log('register succés');
+                } else {
+                    console.log(data,'erreur register');
+                    $("#alert-danger").show().delay(800);
+                }
+            })
+            // handle error
+            .error(function (data) {
+                console.log(data,'erreur register');
+                $("#alert-danger").show().delay(800);
+            });
+
+
+    }
 
 });
 
