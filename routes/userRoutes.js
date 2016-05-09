@@ -37,10 +37,16 @@ router.post('/login', function(req, res, next) {
                     err: 'Could not log in user'
                 });
             }
+        console.log("id user",user._id);
+
             res.status(200).json({
-                status: 'Login successful!'
+                status: 'Login successful!',
+                user: user
             });
+
         });
+        console.log(res.user);
+
     })(req, res, next);
 });
 

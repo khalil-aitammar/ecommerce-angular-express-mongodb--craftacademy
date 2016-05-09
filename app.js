@@ -19,7 +19,7 @@ var Film = require('./models/filmModel');
 
 var User = require('./models/userModel');
 var userRoutes = require('./routes/userRoutes');
-
+var Panier = require('./models/panierModel');
 var app = express();
 
 var port = process.env.PORT || 3000;
@@ -49,18 +49,11 @@ app.use('/user/', userRoutes);
 
 
 
-
-
-
-
-
-
-
 filmRouter = require('./Routes/filmRoutes')(Film);
-
+panierRouter = require('./Routes/panierRoutes')(Panier);
 app.use(express.static(__dirname+'/client'));
 app.use('/api/films', filmRouter);
-
+app.use('/user/panier', panierRouter);
 
 app.get('/', function(req, res){
    res.send('bienvenue ecom');

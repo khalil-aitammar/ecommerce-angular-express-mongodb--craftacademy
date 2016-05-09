@@ -32,18 +32,20 @@ app.controller('loginController', function ($scope, $http) {
         $http.post('/user/login',
             {username: $scope.login, password: $scope.mp})
 
-            .success(function (data, status) {
+            .success(function (data, status,header) {
                 if (status === 200 && data.status) {
                     $scope.formup = false;
+                    console.log('cest bon  login',data.user._id);
                     console.log('cest bon  login');
                 } else {
                     console.log('erreur login');
                 }
             })
-            // handle error
+         
             .error(function (data) {
                 console.log('erreur login');
-            });
+           
+        });
 
 
     }

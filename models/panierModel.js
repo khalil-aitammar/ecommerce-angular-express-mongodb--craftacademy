@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 Schema = mongoose.Schema;
+var filmModel=require('./filmModel');
 
-
-var filmModel = new Schema ({
-    idarticles : [],
+var panierModel = new Schema ({
+    articlebey: [filmModel],
     create_date:{
         type: Date,
         default: Date.now
     },
-},{collection: 'films'});
+},{collection: 'panier'});
 
 
-module.exports= mongoose.model('film', filmModel);
+module.exports= mongoose.model('panier', panierModel);

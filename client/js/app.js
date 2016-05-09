@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('ecomm', ['ngRoute'] );
+var app = angular.module('ecomm', ['ngRoute'],['ngCookies'] );
 //configuration de routeProvider
 app .config(['$routeProvider',
     function($routeProvider) {
