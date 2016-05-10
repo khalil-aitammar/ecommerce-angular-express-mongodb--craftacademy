@@ -27,14 +27,20 @@ app.use(express.static(__dirname));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+// permet à express de décoder les données contenues dans les cookies
 app.use(cookieParser());
+
+
 app.use(require('express-session')({
-   secret: 'keyboard cat',
+   secret: "private",
    resave: false,
    saveUninitialized: false
 }));
+// Initialisation de PassportJs ansi que du système de session
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // configure passport

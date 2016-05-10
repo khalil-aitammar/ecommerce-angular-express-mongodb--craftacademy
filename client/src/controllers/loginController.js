@@ -1,11 +1,12 @@
-app.controller('loginController', function ($scope, $http) {
-    
+app.controller('loginController', function ($scope, $http,$window, $cookieStore) {
+
     
     $scope.logout = function () {
         $http.get('/user/logout')
             .success(function (data, status) {
                 if(status === 200 && data.status){
                     $scope.formup = true;
+
                     console.log('lougout');
                 } else {
                     console.log('erreur lougout');
@@ -35,15 +36,23 @@ app.controller('loginController', function ($scope, $http) {
             .success(function (data, status,header) {
                 if (status === 200 && data.status) {
                     $scope.formup = false;
-                    console.log('cest bon  login',data.user._id);
-                    console.log('cest bon  login');
+                    $cookieStore.put('login', 1);
+                    console.log($cookieStore.get('login'));
+                    $window.alert($cookieStore.get('login'));
+
                 } else {
-                    console.log('erreur login');
+                    console.log('loula erreur login');
+                    $cookieStore.put('login', 2);
+                    console.log($cookieStore.get('erreurlogin'));
+                    $window.alert($cookieStore.get('erreurlogin'));
                 }
             })
-         
+
             .error(function (data) {
-                console.log('erreur login');
+                console.log(' 2 erreur login');
+                $cookieStore.put('login', 2);
+                console.log($cookieStore.get('erreurlogin'));
+                $window.alert($cookieStore.get('erreurlogin'));
            
         });
 

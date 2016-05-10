@@ -1,4 +1,4 @@
-app.controller('articleController', function ($scope, $http) {
+app.controller('articleController', function ($scope, $http, $cookieStore) {
 
 
     $http({
@@ -13,6 +13,10 @@ app.controller('articleController', function ($scope, $http) {
 
     })
     $scope.addToCart = function (product) {
+        if(!$cookieStore.get('Name')){
+            console.log('pas login');
+        }
+        else{
         console.log("debbut produit",product);
         var kha = new Object();
 
@@ -33,7 +37,7 @@ app.controller('articleController', function ($scope, $http) {
         var found = false;
         $scope.cart.forEach(function (item) {
             if (item.id === product.id) {
-                console.log("je suis la ", item.id, product.id);
+            
                 item.quantity++;
                 found = true;
             }
@@ -41,6 +45,7 @@ app.controller('articleController', function ($scope, $http) {
         if (!found) {
             console.log("push  ",product);
             $scope.cart.push(angular.extend({quantity: 1}, product));
+        }
         }
     };
 

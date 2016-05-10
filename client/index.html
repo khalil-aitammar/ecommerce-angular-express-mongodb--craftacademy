@@ -16,7 +16,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="col-md-7">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Shopping</a>
+                    <a class="navbar-brand" href="#">Shopping{{khalil}}</a>
 
                 </div>
                 <ul class="nav navbar-nav">
@@ -80,8 +80,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
                                                         <input type="submit"
-                                                               tabindex="4" ng-click="sub()"
-                                                               class="form-control btn btn-login" value="Log In">
+                                                               tabindex="4" ng-click="sub()" class="form-control btn btn-login" id="boutonlogin" value="Log In">
                                                     </div>
                                                 </div>
                                             </div>
@@ -127,13 +126,14 @@
             </div>
 
         </nav>
-        <div class="alert alert-success" id="alert-success">
+
+        <div class="alert alert-danger" id="alert-login-erreur">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> This alert box could indicate a successful or positive action.
+            <strong>erreur!</strong> L'authentification a échoué
         </div>
-        <div class="alert alert-danger" id="alert-danger">
+        <div class="alert alert-success" id="alert-login-success">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+            <strong>Success!</strong> L'authentification reussie
         </div>
         <!-- navbar fin -->
 
@@ -195,6 +195,7 @@
 <!-- bloc mid fin  -->
 
 <div class="container">
+
     <!-- bloc bot   -->
     <div class="row blocbot">
         <div class="col-md-12">
@@ -207,10 +208,12 @@
 
 
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/angular.js"></script>
 <script type="text/javascript" src="js/angular-animate.min.js"></script>
 <script type="text/javascript" src="js/angular-route.js"></script>
+<script type="text/javascript" src="js/angular-cookies.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="src/controllers/articleController.js"></script>
 <script type="text/javascript" src="src/controllers/detailController.js"></script>
