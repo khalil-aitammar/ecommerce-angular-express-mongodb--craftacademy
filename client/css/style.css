@@ -180,6 +180,34 @@ a{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button.cancel {
+    background: #999;
+    border-color: #999;
+}
+
+button.cancel:hover {
+    background: #888;
+}
+
 .product-list {
     margin: -1px -48px 170px -50px;
 }
@@ -195,6 +223,7 @@ a{
     position: relative;
     transition: transform 0.4s;
 }
+
 .product-list figcaption {
     position: absolute;
     bottom: 0;
@@ -291,20 +320,4 @@ a{
     bottom: 0px;
     right: 16px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

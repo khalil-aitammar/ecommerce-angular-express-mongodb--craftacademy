@@ -1,4 +1,4 @@
-app.controller('articleController',function ($scope, $http){
+app.controller('articleController', function ($scope, $http) {
 
 
     $http({
@@ -12,53 +12,45 @@ app.controller('articleController',function ($scope, $http){
     }).then(function () {
 
     })
+    $scope.addToCart = function (product) {
+        console.log("debbut produit",product);
+        var kha = new Object();
+
+        kha.id = parseInt(product._id);
+        kha.titre = product.titre;
+        kha.image = product.url_img;
+        kha.price = product.prix;
+        kha.$$hashKey = kha.hashKey;
+        console.log(" kha",kha);
+      
+        product.id =  kha.id ;
+        product.titre = kha.titre;
+        product.image = kha.image;
+        product.price = kha.price
+        
+        console.log("fin",product);
         $scope.cart = [];
-
-
-
-        $scope.addToCart = function (product) {
-            var found = false;
-            $scope.cart.forEach(function (item) {
-                if (item.id === product.id) {
-                    item.quantity++;
-                    found = true;
-                }
-            });
-            if (!found) {
-                $scope.cart.push(angular.extend({quantity: 1}, product));
+        var found = false;
+        $scope.cart.forEach(function (item) {
+            if (item.id === product.id) {
+                console.log("je suis la ", item.id, product.id);
+                item.quantity++;
+                found = true;
             }
-        };
+        });
+        if (!found) {
+            console.log("push  ",product);
+            $scope.cart.push(angular.extend({quantity: 1}, product));
+        }
+    };
 
-        $scope.getCartPrice = function () {
-            var total = 0;
-            $scope.cart.forEach(function (product) {
-                total += product.price * product.quantity;
-            });
-            return total;
-        };
+    $scope.getCartPrice = function () {
+        var total = 0;
+        $scope.cart.forEach(function (product) {
+            total += product.price * product.quantity;
+        });
+        return total;
+    };
+})
 
 
-    })
-
-    .controller('CheckoutCtrl', function ($scope, totalAmount) {
-        $scope.totalAmount = totalAmount;
-
-        $scope.onSubmit = function () {
-            $scope.processing = true;
-        };
-
-        $scope.stripeCallback = function (code, result) {
-            $scope.processing = false;
-            $scope.hideAlerts();
-            if (result.error) {
-                $scope.stripeError = result.error.message;
-            } else {
-                $scope.stripeToken = result.id;
-            }
-        };
-
-        $scope.hideAlerts = function () {
-            $scope.stripeError = null;
-            $scope.stripeToken = null;
-        };
-    });
