@@ -49,8 +49,8 @@ app.use('/user/', userRoutes);
 
 
 
-filmRouter = require('./Routes/filmRoutes')(Film);
-panierRouter = require('./Routes/panierRoutes')(Panier);
+filmRouter = require('./routes/filmRoutes')(Film);
+panierRouter = require('./routes/panierRoutes')(Panier);
 app.use(express.static(__dirname+'/client'));
 app.use('/api/films', filmRouter);
 app.use('/user/panier', panierRouter);
