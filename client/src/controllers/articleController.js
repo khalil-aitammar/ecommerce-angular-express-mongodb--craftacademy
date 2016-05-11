@@ -9,7 +9,7 @@ app.controller('articleController', function ($scope, $http, $cookieStore) {
         $scope.articles = response;
         console.log('controller article', $scope.articles);
         $scope.film = $scope.articles.data;
-
+     
     }).then(function () {
 
     })

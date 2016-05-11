@@ -1,6 +1,6 @@
 'use strict';
-app.controller('detailController', function ($scope, $http, $routeParams) {
-    console.log($scope.nmb);
+app.controller('detailController', function ($scope, $http, $routeParams, $cookieStore) {
+
   var filmid=$routeParams.id;
         $http({
             method: 'GET',
@@ -9,8 +9,10 @@ app.controller('detailController', function ($scope, $http, $routeParams) {
             $scope.film = response;
 
             $scope.film = $scope.film.data;
-          
+            console.log('film id',$scope.film);
+            $cookieStore.put("film", $scope.film);
+            console.log('cookis article',  $cookieStore.get("film"));
         })
- 
+ $scope.titrefilm=$cookieStore.get("film").titre;
 });
 
