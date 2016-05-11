@@ -1,9 +1,18 @@
 
-'use strict';
-
 app.controller('DatepickerPopupDemoCtrl', function ($scope) {
+
+// recuperation des deux date de reservation
+    $scope.valreservation = function() {
+        console.log($scope.dt);
+        $cookieStore.put("date1", $scope.dt);
+        console.log($scope.dt2);
+        $cookieStore.put("date2", $scope.dt2);
+    };
+
+
     $scope.today = function() {
         $scope.dt = new Date();
+        $scope.dt2 = new Date();
     };
     $scope.today();
 
@@ -17,6 +26,7 @@ app.controller('DatepickerPopupDemoCtrl', function ($scope) {
         showWeeks: true
     };
 
+
     $scope.dateOptions = {
         dateDisabled: disabled,
         formatYear: 'yy',
@@ -25,7 +35,7 @@ app.controller('DatepickerPopupDemoCtrl', function ($scope) {
         startingDay: 1
     };
 
-    // Disable weekend selection
+    // desactiver le weekend
     function disabled(data) {
         var date = data.date,
             mode = data.mode;
@@ -49,6 +59,8 @@ app.controller('DatepickerPopupDemoCtrl', function ($scope) {
 
     $scope.setDate = function(year, month, day) {
         $scope.dt = new Date(year, month, day);
+        $scope.dt2 = new Date(year, month, day);
+
     };
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
