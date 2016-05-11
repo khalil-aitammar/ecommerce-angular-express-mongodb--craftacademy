@@ -1,14 +1,15 @@
-    <p ng-controller="detailController"><h1>nom article </h1>{{titrefilm}} <h2>panier</h2> {{nobmart}}</p>
+    <p ng-controller="detailController"><h1>nom article : {{filmRES.titre}} </h1>
+<h2>description  :{{filmRES.description}}</h2>
+
+<h3>   genre : {{filmRES.genre}}</h3>
+    <h4> prix : {{filmRES.prix}}   </h4>
+
+<h3>reserver de {{locationtemp1}} au {{locationtemp2}}</h3>
 
 
 
 
-
-
-
-
-
-<!-- login  -->
+    <!-- login  -->
 <div class="col-md-5 col-sm-offset-0" ng-controller="loginController" ng-init="formup=false">
     <div class="authentification" ng-hide="!formup">
         <img src="https://maxcdn.icons8.com/Color/PNG/48/Business/approve-48.png" title="Approve" width="48">
@@ -31,7 +32,7 @@
                    placeholder="Password" ng-model="mp">
         </div>
 
-        <button type="submit"  class="btn btn-primary" ng-click="sub()">Login</button>
+        <button type="submit"  class="btn btn-primary"  id="ddd" ng-click="sub()">Login</button>
     </form>
 </div>
 <!-- login fin -->

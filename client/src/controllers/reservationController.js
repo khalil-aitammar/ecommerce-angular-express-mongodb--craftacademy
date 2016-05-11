@@ -1,8 +1,10 @@
 
-app.controller('DatepickerPopupDemoCtrl', function ($scope) {
+app.controller('DatepickerPopupDemoCtrl', function ($scope,$cookieStore) {
 
 // recuperation des deux date de reservation
     $scope.valreservation = function() {
+
+
         console.log($scope.dt);
         $cookieStore.put("date1", $scope.dt);
         console.log($scope.dt2);

@@ -39,6 +39,7 @@ app.controller('loginController', function ($scope, $http,$window, $cookieStore)
                 if (status === 200 && data.status) {
                     $scope.formup = false;
                     $cookieStore.put('login', 1);
+                    console.log('login succes');
 
 
                 } else {
