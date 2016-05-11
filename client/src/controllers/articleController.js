@@ -1,3 +1,4 @@
+'use strict';
 app.controller('articleController', function ($scope, $http, $cookieStore) {
 
 
@@ -13,10 +14,11 @@ app.controller('articleController', function ($scope, $http, $cookieStore) {
 
     })
     $scope.addToCart = function (product) {
-        if(!$cookieStore.get('Name')){
-            console.log('pas login');
-        }
-        else{
+        console.log($cookieStore.get('login'));
+        if($cookieStore.get('login')==1){
+
+
+
         console.log("debbut produit",product);
         var kha = new Object();
 
@@ -46,6 +48,9 @@ app.controller('articleController', function ($scope, $http, $cookieStore) {
             console.log("push  ",product);
             $scope.cart.push(angular.extend({quantity: 1}, product));
         }
+        }else{
+            $cookieStore.put('login', 3);
+            console.log($cookieStore.get('login'));
         }
     };
 

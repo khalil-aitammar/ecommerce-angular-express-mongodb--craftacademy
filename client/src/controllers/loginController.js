@@ -1,3 +1,5 @@
+
+'use strict';
 app.controller('loginController', function ($scope, $http,$window, $cookieStore) {
 
     
@@ -6,7 +8,7 @@ app.controller('loginController', function ($scope, $http,$window, $cookieStore)
             .success(function (data, status) {
                 if(status === 200 && data.status){
                     $scope.formup = true;
-
+                    $cookieStore.put('login', 0);
                     console.log('lougout');
                 } else {
                     console.log('erreur lougout');
@@ -37,22 +39,19 @@ app.controller('loginController', function ($scope, $http,$window, $cookieStore)
                 if (status === 200 && data.status) {
                     $scope.formup = false;
                     $cookieStore.put('login', 1);
-                    console.log($cookieStore.get('login'));
-                    $window.alert($cookieStore.get('login'));
+
 
                 } else {
                     console.log('loula erreur login');
                     $cookieStore.put('login', 2);
-                    console.log($cookieStore.get('erreurlogin'));
-                    $window.alert($cookieStore.get('erreurlogin'));
+
                 }
             })
 
             .error(function (data) {
                 console.log(' 2 erreur login');
                 $cookieStore.put('login', 2);
-                console.log($cookieStore.get('erreurlogin'));
-                $window.alert($cookieStore.get('erreurlogin'));
+             
            
         });
 

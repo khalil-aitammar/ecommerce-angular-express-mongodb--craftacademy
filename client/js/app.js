@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies']);
+var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.bootstrap']);
 //configuration de routeProvider
 app.config(['$routeProvider',
     function ($routeProvider) {
@@ -24,7 +24,47 @@ app.config(['$routeProvider',
     }]);
 
 
-$(function bloclogin() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$('#addbutton').click(function (e) {
+    var CookieGet =$.cookie('login', Number);
+
+
+
+    if (CookieGet ==3) {
+        $("#alert-login-erreur").show();
+        $(".panel-body").hide();
+        $.cookie('login', '');
+    }
+
+
+});
+
+
+
+
+
+
+
 
     $(".panel-body").hide();
     $("#alert-success").hide();
@@ -39,7 +79,6 @@ $(function bloclogin() {
         $("#alert-login-success").hide(1500);
     });
 
-
 // notification login
     $('#boutonlogin').click(function (e) {
         var CookieGet =$.cookie('login', Number); 
@@ -48,9 +87,11 @@ $(function bloclogin() {
 
         if (CookieGet==1) {
             $("#alert-login-success").show();
+            $.cookie('login', '');
         }
         if (CookieGet ==2) {
             $("#alert-login-erreur").show();
+            $.cookie('login', '');
             $(".panel-body").hide();
         }
 
@@ -83,4 +124,4 @@ $(function bloclogin() {
         e.preventDefault();
     });
 
-});
+

@@ -198,7 +198,7 @@ a{
 
 
 
-
+/* css  panier  */
 button.cancel {
     background: #999;
     border-color: #999;
@@ -315,9 +315,21 @@ button.cancel:hover {
     border-radius: 50%;
 }
 
+/* css  agenda  */
 .shopping-cart button {
     position: absolute;
     bottom: 0px;
     right: 16px;
 }
 
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+}
+
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+}
