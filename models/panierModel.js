@@ -3,9 +3,9 @@ Schema = mongoose.Schema;
 
 
 var panierModel = new Schema({
-    iduser:String,
+    iduser: String,
     articles: [{
-
+        idarticle: String,
         resD: Date,
         resF: Date
     }],

@@ -6,17 +6,17 @@ var routes = function (Film) {
     // ajouter un film
 
     filmRouter.route('/')
-        .post(function(req, res) {
+        .post(function (req, res) {
             Film.create({ //creates board
                     titre: req.body.titre,
                     description: req.body.description,
                     url_img: req.body.url_img
                 },
-                function(err, createdFilm) {
-                    if(err) {
-                        res.json({"success": false, "message": "Error creating film"});
+                function (err, createdFilm) {
+                    if (err) {
+                        res.json('erreur creation film', err);
                     } else {
-                        res.json({"success": true, "message": createdFilm});
+                        res.json('success creation film ', createdFilm);
                     }
                 });
         })
