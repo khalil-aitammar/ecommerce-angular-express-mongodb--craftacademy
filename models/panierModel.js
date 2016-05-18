@@ -3,7 +3,7 @@ Schema = mongoose.Schema;
 
 
 var panierModel = new Schema({
-    _iduser: String,
+    _id: String,
     articles: [{
         idarticle: String,
         resD: Date,
@@ -15,5 +15,4 @@ var panierModel = new Schema({
     },
 }, {collection: 'panier'});
 
-
-panier = mongoose.model('panier', panierModel);
+module.exports = mongoose.model('panier', panierModel);

@@ -59,34 +59,24 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
     }
     $scope.register = function () {
 
-        console.log("doné user", $scope.username, $scope.usermail, $scope.passuser);
+        $http.post('/user/register', {username: $scope.username, password: $scope.passuser, usermail: $scope.usermail})
+            .success(function (data, status) {
+                console.log('register succés', data, status);
+                 var iduserdata = data;
 
-        $http.post('/user/register',
-            {username: $scope.username, password: $scope.passuser, usermail: $scope.usermail})
+                        $http.post('/api/panier', {iduser: iduserdata})
+                            .success(function (data, status) {
+                                console.log('panier', data);
+                            })
+                            .error(function (data, status) {
+                                console.log(' ajout panier erreur ', data, status);
+                            });
 
-            .success(function (data, status,header) {
-                console.log('user', data);
-                if (status === 200 && data.status) {
-                    $(".panel-body").hide();
-                    $("#alert-success").show().delay(800);
-                    console.log('data', data);
-                    console.log('register succés');
-
-                    
-
-
-
-                } else {
-                    console.log(data, 'erreur register');
-                    $("#alert-danger").show().delay(800);
-                }
             })
-            // handle error
-            .error(function (data) {
-                console.log(data, 'erreur register');
-                $("#alert-danger").show().delay(800);
-            });
+            .error(function (data, status) {
+                console.log('register erreur', data, status);
 
+            })
 
     }
 

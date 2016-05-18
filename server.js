@@ -24,7 +24,7 @@ mongoose.connect('mongodb://localhost/ecom', function(err) {
 //import des model
 var User = require('./models/userModel');
 var userRoutes = require('./routes/usersRoutes');
-var Panier = require('./models/panierModel');
+
 var app = express();
 
 var port = process.env.PORT || 3000;
@@ -57,13 +57,18 @@ var Film = require('./models/filmModel');
 filmRouter = require('./Routes/filmRoutes')(Film);
 app.use('/api/films', filmRouter);
 
+
+var Panier = require('./models/panierModel');
+panierRouter = require('./routes/panierRoutes')(Panier);
+app.use('/api/panier', panierRouter);
+
 // routes
 app.use('/user/', userRoutes);
 
-panierRouter = require('./routes/panierRoutes')(Panier);
+
 app.use(express.static(__dirname+'/client'));
 
-app.use('/user/panier', panierRouter);
+
 
 app.get('/', function(req, res){
    res.send('bienvenue ecom');
