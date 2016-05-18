@@ -22,10 +22,8 @@ mongoose.connect('mongodb://localhost/ecom', function(err) {
 });
 
 //import des model
-var Film = require('./models/filmModel');
-
 var User = require('./models/userModel');
-var userRoutes = require('./routes/userRoutes');
+var userRoutes = require('./routes/usersRoutes');
 var Panier = require('./models/panierModel');
 var app = express();
 
@@ -47,7 +45,6 @@ app.use(require('express-session')({
 // Initialisation de PassportJs ansi que du système de session
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 // configure passport
@@ -55,17 +52,17 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+/** when you're in the '/products' the productRouter will handle it*/
+var Film = require('./models/filmModel');
+filmRouter = require('./Routes/filmRoutes')(Film);
+app.use('/api/films', filmRouter);
+
 // routes
 app.use('/user/', userRoutes);
 
-
-
-
-
-filmRouter = require('./routes/filmRoutes')(Film);
 panierRouter = require('./routes/panierRoutes')(Panier);
 app.use(express.static(__dirname+'/client'));
-app.use('/api/films', filmRouter);
+
 app.use('/user/panier', panierRouter);
 
 app.get('/', function(req, res){

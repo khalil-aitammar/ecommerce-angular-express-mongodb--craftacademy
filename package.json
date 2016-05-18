@@ -28,6 +28,7 @@
     "gulp-nodemon": "^2.0.6",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.14",
+    "mongoose-autorefs": "^1.0.5",
     "mongoose-type-email": "^1.0.2",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",

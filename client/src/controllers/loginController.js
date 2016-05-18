@@ -1,12 +1,11 @@
-
 'use strict';
-app.controller('loginController', function ($scope, $http,$window, $cookieStore) {
+app.controller('loginController', function ($scope, $http, $window, $cookieStore) {
 
-    
+
     $scope.logout = function () {
         $http.get('/user/logout')
             .success(function (data, status) {
-                if(status === 200 && data.status){
+                if (status === 200 && data.status) {
                     $scope.formup = true;
                     $cookieStore.put('login', 0);
                     console.log('lougout');
@@ -35,7 +34,7 @@ app.controller('loginController', function ($scope, $http,$window, $cookieStore)
         $http.post('/user/login',
             {username: $scope.login, password: $scope.mp})
 
-            .success(function (data, status,header) {
+            .success(function (data, status, header) {
                 if (status === 200 && data.status) {
                     $scope.formup = false;
                     $cookieStore.put('login', 1);
@@ -52,33 +51,39 @@ app.controller('loginController', function ($scope, $http,$window, $cookieStore)
             .error(function (data) {
                 console.log(' 2 erreur login');
                 $cookieStore.put('login', 2);
-             
-           
-        });
+
+
+            });
 
 
     }
     $scope.register = function () {
 
-        console.log("doné user", $scope.username, $scope.usermail,$scope.passuser);
+        console.log("doné user", $scope.username, $scope.usermail, $scope.passuser);
 
         $http.post('/user/register',
-            {username: $scope.username, password: $scope.passuser, usermail:$scope.usermail })
+            {username: $scope.username, password: $scope.passuser, usermail: $scope.usermail})
 
-            .success(function (data, status) {
+            .success(function (data, status,header) {
+                console.log('user', data);
                 if (status === 200 && data.status) {
                     $(".panel-body").hide();
                     $("#alert-success").show().delay(800);
-                    
+                    console.log('data', data);
                     console.log('register succés');
+
+                    
+
+
+
                 } else {
-                    console.log(data,'erreur register');
+                    console.log(data, 'erreur register');
                     $("#alert-danger").show().delay(800);
                 }
             })
             // handle error
             .error(function (data) {
-                console.log(data,'erreur register');
+                console.log(data, 'erreur register');
                 $("#alert-danger").show().delay(800);
             });
 

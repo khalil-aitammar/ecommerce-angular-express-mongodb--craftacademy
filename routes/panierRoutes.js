@@ -6,17 +6,17 @@ var routes = function (Panier) {
 
     // ajouter un panier
     panierRouter.route('/')
-        .post(function(req, res) {
+        .post(function (req, res) {
             Panier.create({
                     titre: req.body.titre,
                     description: req.body.description,
                     url_img: req.body.url_img
                 },
-                function(err, createdPanier) {
-                    if(err) {
+                function (err, createdPanier) {
+                    if (err) {
                         res.json('erreur creation panier', err);
                     } else {
-                        res.json('success creation panier ',createdPanier);
+                        res.json('success creation panier ', createdPanier);
                     }
                 });
         })
@@ -32,11 +32,12 @@ var routes = function (Panier) {
             });
         })
 
+
     // get panier suivent id user
-    
+
     panierRouter.use('/:iduser', function (req, res, next) {
-        Film.findById(req.params.iduser, function (err, doc){
-          console.log(doc);
+        Film.findById(req.params.iduser, function (err, doc) {
+            console.log(doc);
         });
         Panier.findById(req.params.filmId, function (err, film) {
             if (err)

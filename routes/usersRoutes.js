@@ -7,18 +7,17 @@ var User = require('../models/userModel');
 
 router.post('/register', function(req, res) {
     User.register(new User({ username: req.body.username, usermail: req.body.usermail }),
-        req.body.password, function(err, account) {
+        req.body.password, function(err, User) {
             if (err) {
                 return res.status(500).json({
                     err: err
                 });
             }
             passport.authenticate('local')(req, res, function () {
-                return res.status(200).json({
-                    status: 'Registration successful!'
-                });
+                res.send(User._id);
             });
         });
+
 });
 
 router.post('/login', function(req, res, next) {
@@ -67,6 +66,20 @@ router.get('/status', function(req, res) {
         status: true
     });
 });
+
+router.get('/session',function(req,res){
+    if(!req.session.passport){
+        return res.status(404).send("session not found");
+    }else{
+        res.status(200).json({
+            status: true
+        });
+    }
+});
+
+
+
+
 
 
 module.exports = router;
