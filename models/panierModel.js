@@ -6,6 +6,7 @@ var panierModel = new Schema({
     _id: String,
     articles: [{
         idarticle: String,
+        qt:Number,
         resD: Date,
         resF: Date
     }],

@@ -19,7 +19,18 @@ var routes = function(Film){
                 res.json(Films);
             });
         });
-
+    FilmRouter.route('/:idarticle')
+    //film par id
+        .get(function(req,res) {
+            console.log(req.params.idarticle);
+            Film.findById(req.params.idarticle, function(err, film) {
+                if(err) {
+                    res.json({"success": false, "message": err});
+                } else {
+                    res.json(film);
+                }
+            });
+        })
 
     return FilmRouter
 };

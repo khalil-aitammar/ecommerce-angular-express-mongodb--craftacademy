@@ -11,9 +11,9 @@ app.config(['$routeProvider',
             templateUrl: 'src/Views/panier.html',
             controller: 'detailController'
         }).// url page series
-        when('/series', {
-            templateUrl: 'src/Views/series.html',
-            controller: 'seriesController'
+        when('/res', {
+            templateUrl: 'src/Views/panier2.html',
+            controller: 'panier2Controller'
         }).when('/film', {
             templateUrl: 'src/Views/films.html',
             controller: 'articleController'
