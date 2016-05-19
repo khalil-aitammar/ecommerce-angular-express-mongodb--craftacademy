@@ -7,7 +7,7 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
             .success(function (data, status) {
                 if (status === 200 && data.status) {
                     $scope.formup = true;
-                    $cookieStore.put('login', 0);
+
                     console.log('lougout');
                 } else {
                     console.log('erreur lougout');
@@ -37,20 +37,20 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
             .success(function (data, status, header) {
                 if (status === 200 && data.status) {
                     $scope.formup = false;
-                    $cookieStore.put('login', 1);
+                  console.log($cookieStore);
                     console.log('login succes');
 
 
                 } else {
                     console.log('loula erreur login');
-                    $cookieStore.put('login', 2);
+
 
                 }
             })
 
             .error(function (data) {
                 console.log(' 2 erreur login');
-                $cookieStore.put('login', 2);
+
 
 
             });

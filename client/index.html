@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 
 
-<body ng-app="ecomm">
+<body ng-app="ecomm" ng-controller="MainCtrl" ng-init="formup=true">
 <div class="container-fluid">
     <div class="row bloctop">
         <!-- navbar -->
@@ -30,7 +30,7 @@
                 </form>
 
             </div>
-            <div class="col-md-5" loginrow ng-controller="loginController" ng-init="formup=true">
+            <div class="col-md-5" loginrow ng-controller="loginController" >
                 <div class="row ">
 
                     <div class="col-md-6 col-md-offset-3">

@@ -2,8 +2,7 @@ var express  = require("express"),
 session      = require("cookie-session"),
 app = express();
 
-app
-.use(session({
+app.use(session({
   maxage :10000,
   signed:false
 }));

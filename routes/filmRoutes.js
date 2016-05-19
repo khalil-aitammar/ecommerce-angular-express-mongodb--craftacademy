@@ -8,7 +8,9 @@ var routes = function(Film){
         .post(function(req,res){
             var film = new Film();
             film.titre=req.body.titre;
-            console.log(req.body.titre);
+            film.description=req.body.description;
+            film.url_img=req.body.url_img;
+            film.prix=req.body.prix;
             film.save();
             res.status(201).send(film);
         })

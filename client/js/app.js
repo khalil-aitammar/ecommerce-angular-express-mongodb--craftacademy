@@ -1,5 +1,20 @@
 'use strict';
 var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.bootstrap']);
+
+app.controller('MainCtrl', function($scope,$http) {
+    $http({method: 'GET', url: '/user/session'}).
+    success(function(data, status, headers, config) {
+    console.log('je suis log',data,status);
+        $scope.formup = false;
+    }).
+    error(function(data, status, headers, config) {
+        console.log('ménich log',data,status);
+    });
+
+});
+
+
+
 //configuration de routeProvider
 app.config(['$routeProvider',
     function ($routeProvider) {
