@@ -2,6 +2,30 @@
 var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.bootstrap']);
 
 app.controller('MainCtrl', function($scope,$http) {
+    $('.owl-carousel').owlCarousel(
+        {
+            lazyLoad:true,
+            margin:5,
+            autoplay:true,
+            autoplayTimeout:5000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                960:{
+                    items:5
+                },
+                16000:{
+                    items:6
+                }
+            }
+        }
+
+    );
     $http({method: 'GET', url: '/user/session'}).
     success(function(data, status, headers, config) {
     console.log('je suis log',data,status);
@@ -37,6 +61,8 @@ app.config(['$routeProvider',
             redirectTo: '/film'
         });
     }]);
+
+
 
 
 

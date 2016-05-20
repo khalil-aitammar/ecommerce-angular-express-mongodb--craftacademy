@@ -2,9 +2,13 @@
 
     <!-- article  -->
     <div class="row">
-        <div class="col-lg-2" ng-repeat="x in film | filter : myvar">
+        <div class="titre">
+            <h2><img src="https://maxcdn.icons8.com/Color/PNG/96/Folders/movies_folder-96.png" title="Movies Folder"
+                     width="96"> Derniers Films ajoutes </h2>
+        </div>
+        <div class="col-lg-2 " ng-repeat="x in film | filter : myvar">
 
-            <div class="blocarticle">
+            <div class="blocarticle ">
                 <img class="article img-thumbnail" src="img/films/{{x.url_img}}" alt="affiche filp">
                 <p> {{x.titre}}</p>
 

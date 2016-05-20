@@ -31,6 +31,7 @@
     "mongoose-autorefs": "^1.0.5",
     "mongoose-type-email": "^1.0.2",
     "morgan": "^1.7.0",
+    "owl.carousel": "^2.1.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
