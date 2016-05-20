@@ -1,5 +1,42 @@
 'use strict';
-var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.bootstrap']);
+var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.bootstrap'])
+
+    .filter('columns', function () {
+        return function (items, colNum, index) {
+            var cssClass = '',
+                itemsCount = Object.keys(items).length;
+
+            if (colNum > 1 && colNum < 13) {
+                if (itemsCount < colNum) {
+                    if (itemsCount === 5) {
+                        cssClass = ' col-md-2';
+                    } else {
+                        var eqCol = 12;
+                        switch (itemsCount) {
+                            case 2: eqCol = 6; break;
+                            case 3: eqCol = 4; break;
+                            case 4: eqCol = 3; break;
+                        }
+                        cssClass = ' col-md-' + eqCol;
+                        if (index && index % itemsCount === 0) {
+                            cssClass += ' clearfix ';
+                        }
+                    }
+                }
+                else {
+                    var col = 12/colNum;
+                    if (col.toString().indexOf('.') != 1) {
+                        cssClass = ' col-md-' + col;
+                        if (index && index % colNum === 0) {
+                            cssClass += ' clearfix ';
+                        }
+                    }
+                }
+            }
+            return cssClass;
+        };
+    });
+
 
 app.controller('MainCtrl', function($scope,$http) {
     $('.owl-carousel').owlCarousel(
@@ -28,7 +65,7 @@ app.controller('MainCtrl', function($scope,$http) {
     );
     $http({method: 'GET', url: '/user/session'}).
     success(function(data, status, headers, config) {
-    console.log('je suis log',data,status);
+        console.log('je suis log',data,status);
         $scope.formup = false;
     }).
     error(function(data, status, headers, config) {
@@ -61,6 +98,7 @@ app.config(['$routeProvider',
             redirectTo: '/film'
         });
     }]);
+
 
 
 
@@ -122,8 +160,8 @@ $('#addbutton').click(function (e) {
 
 // notification login
     $('#boutonlogin').click(function (e) {
-        var CookieGet =$.cookie('login', Number); 
-        
+        var CookieGet =$.cookie('login', Number);
+
 
 
         if (CookieGet==1) {
