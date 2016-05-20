@@ -41,10 +41,12 @@ var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.boots
 app.controller('MainCtrl', function($scope,$http) {
     $('.owl-carousel').owlCarousel(
         {
+            navigation : true,
+            loop:true,
             lazyLoad:true,
             margin:5,
             autoplay:true,
-            autoplayTimeout:5000,
+            autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsive:{
                 0:{
