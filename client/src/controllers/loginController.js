@@ -1,5 +1,5 @@
 'use strict';
-app.controller('loginController', function ($scope, $http, $window, $cookieStore) {
+app.controller('loginController', function ($scope, $http, $window, $cookieStore, toastr) {
 
 
     $scope.logout = function () {
@@ -37,22 +37,18 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
             .success(function (data, status, header) {
                 if (status === 200 && data.status) {
                     $scope.formup = false;
-                  console.log($cookieStore);
-                    console.log('login succes');
-
+                    console.log($cookieStore);
+                    toastr.success('Authentification réussie', 'success!');
 
                 } else {
                     console.log('loula erreur login');
-
-
+                    toastr.error('login ou mot de passe incorrects', 'Error');
                 }
             })
 
             .error(function (data) {
                 console.log(' 2 erreur login');
-
-
-
+                toastr.error('login ou mot de passe incorrects', 'Error');
             });
 
 
@@ -62,15 +58,15 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
         $http.post('/user/register', {username: $scope.username, password: $scope.passuser, usermail: $scope.usermail})
             .success(function (data, status) {
                 console.log('register succés', data, status);
-                 var iduserdata = data;
+                var iduserdata = data;
 
-                        $http.post('/api/panier', {iduser: iduserdata})
-                            .success(function (data, status) {
-                                console.log('panier', data);
-                            })
-                            .error(function (data, status) {
-                                console.log(' ajout panier erreur ', data, status);
-                            });
+                $http.post('/api/panier', {iduser: iduserdata})
+                    .success(function (data, status) {
+                        console.log('panier', data);
+                    })
+                    .error(function (data, status) {
+                        console.log(' ajout panier erreur ', data, status);
+                    });
 
             })
             .error(function (data, status) {
@@ -81,4 +77,3 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
     }
 
 });
-

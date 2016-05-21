@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.bootstrap'])
+var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','toastr'])
 
     .filter('columns', function () {
         return function (items, colNum, index) {
@@ -36,9 +36,38 @@ var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','ui.boots
             return cssClass;
         };
     });
-
+app.config(function(toastrConfig) {
+    angular.extend(toastrConfig, {
+        allowHtml: false,
+        closeButton: false,
+        closeHtml: '<button>&times;</button>',
+        extendedTimeOut: 1000,
+        positionClass: 'toast-top-left',
+        iconClasses: {
+            error: 'toast-error',
+            info: 'toast-info',
+            success: 'toast-success',
+            warning: 'toast-warning'
+        },
+        messageClass: 'toast-message',
+        onHidden: null,
+        onShown: null,
+        onTap: null,
+        progressBar: false,
+        tapToDismiss: true,
+        templates: {
+            toast: 'directives/toast/toast.html',
+            progressbar: 'directives/progressbar/progressbar.html'
+        },
+        timeOut: 5000,
+        titleClass: 'toast-title',
+        toastClass: 'toast'
+    });
+});
 
 app.controller('MainCtrl', function($scope,$http) {
+
+
     $('.owl-carousel').owlCarousel(
         {
             navigation : true,
@@ -85,9 +114,9 @@ app.config(['$routeProvider',
         when('/detail:id?', {
             templateUrl: 'src/Views/article.html',
             controller: 'detailController'
-        }).when('/panier:panier?', {
-            templateUrl: 'src/Views/panier.html',
-            controller: 'detailController'
+        }).when('/panier', {
+            templateUrl: 'src/Views/panier2.html',
+            controller: 'panier2Controller'
         }).// url page series
         when('/res', {
             templateUrl: 'src/Views/panier2.html',
@@ -126,20 +155,6 @@ app.config(['$routeProvider',
 
 
 
-$('#addbutton').click(function (e) {
-    var CookieGet =$.cookie('login', Number);
-
-
-
-    if (CookieGet ==3) {
-        $("#alert-login-erreur").show();
-        $(".panel-body").hide();
-        $.cookie('login', '');
-    }
-
-
-});
-
 
 
 
@@ -148,36 +163,8 @@ $('#addbutton').click(function (e) {
 
 
     $(".panel-body").hide();
-    $("#alert-success").hide();
-    $("#alert-danger").hide();
-    $("#alert-login-erreur").hide();
-    $("#alert-login-success").hide();
-
-    $("#alert-login-erreur").mouseover(function () {
-        $("#alert-login-erreur").hide(1500);
-    });
-    $("#alert-login-success").mouseover(function () {
-        $("#alert-login-success").hide(1500);
-    });
-
-// notification login
-    $('#boutonlogin').click(function (e) {
-        var CookieGet =$.cookie('login', Number);
 
 
-
-        if (CookieGet==1) {
-            $("#alert-login-success").show();
-            $.cookie('login', '');
-        }
-        if (CookieGet ==2) {
-            $("#alert-login-erreur").show();
-            $.cookie('login', '');
-            $(".panel-body").hide();
-        }
-
-
-    });
 
 
     $('#register-form-link').click(function (e) {

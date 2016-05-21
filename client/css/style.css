@@ -53,29 +53,29 @@ body {
     text-align: center;
     font-size: small;
 
-
 }
-.article{
+
+.article {
     -moz-border-radius-bottomleft: 2px;
     -moz-border-radius-bottomleft: 2px;
     -webkit-border-bottom-left-radius: 2px;
     -webkit-border-bottom-right-radius: 2px;
     border-bottom-right-radius: 2px;
     border-bottom-right-radius: 2px;
-    -moz-box-shadow: 0px 2px 7px rgba(0,0,0,0.15);
-    -webkit-box-shadow: 0px 2px 7px rgba(0,0,0,0.15);
-    box-shadow: 0px 2px 15px rgba(0,0,0,0.15);
-
+    -moz-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
 
 }
 
 .article:hover {
-    box-shadow: 0 0px 10px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.22);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
-.article >  p {
+
+.article > p {
     background-color: #044F67;
     color: #e0f7fa;
-    height:35px ;
+    height: 35px;
     overflow: hidden;
 }
 
@@ -245,7 +245,7 @@ a {
     text-align: left;
 
     padding: 50px 60px 40px;
-    margin-top: 80px;
+
     overflow: hidden;
 }
 
@@ -434,4 +434,101 @@ a {
     .footer-distributed form button {
         float: none;
     }
+}
+
+/** detail article **/
+.detailarticle {
+    margin-top: 30px;
+}
+
+.buttondetail {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 28px;
+    padding: 20px;
+    width: 210px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.buttondetail span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.buttondetail span:after {
+    content: '+1';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -150px;
+    transition: 0.5s;
+}
+
+.buttondetail:hover span {
+    padding-right: 35px;
+}
+
+.buttondetail:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/** bouton panier bar menu **/
+
+.sleeve {
+    font-weight: 900;
+    height: 45px;
+    position: relative;
+    font-size: 12px;
+    background-color: #3498db;
+    line-height: 0.5em;
+    width: 100px;
+    color: #ffffff;
+    margin-right: 120px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    font-family: 'Verdana';
+    text-transform: uppercase;
+
+}
+
+.insert {
+    position: absolute;
+    left: 25px;
+    top: 3%;
+    display: block;
+    z-index: -100;
+    width: 100%;
+    height: 94%;
+    box-sizing: border-box;
+    color: #fff;
+    border-radius: 2px;
+    text-align: right;
+    transition: all 1s ease-in-out;
+    border-right: 1px dotted rgba(0, 0, 0, 0.5);
+}
+
+.sleeve:hover .insert {
+    text-align: right;
+    width: 150%;
+    transition: all 1s ease-in-out;
+}
+
+.insert.facebook {
+    background: #e43a15; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #e43a15, #e65245); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #e43a15, #e65245); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+/* aletre css */
+.toast{
+    position: absolute;
+    top:50px;
 }

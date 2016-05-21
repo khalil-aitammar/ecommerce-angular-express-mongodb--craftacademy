@@ -3,21 +3,30 @@
 <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+
 <div class="row">
 
     <div class="col-md-6">
 
-        <div ng-controller="detailController">
+        <div class="panel panel-default detailarticle" ng-controller="detailController">
 
-            <p> titre : {{film.titre}}</p>
-            <img src="img/films/{{film.url_img}}" alt="">
-
-            <p> description : {{film.description}}</p>
+            <p class="panel-heading"> titre : {{film.titre}}</p>
+            <div class="panel-body">
+                <img src="img/films/{{film.url_img}}" >
+                <p> description : {{film.description}}</p>
+            </div>
 
 
         </div>
-    </div>
 
+
+    </div>
+    <div class="col-md-6">
+        <button class="buttondetail" style="vertical-align:middle">
+            <span> <img src="https://maxcdn.icons8.com/Color/PNG/48/Ecommerce/shopping_cart_loaded-48.png" title="Shopping Cart Loaded" width="48"> panier</span>
+        </button>
+    </div>
 </div>
 
 

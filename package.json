@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/khalilammarCraft/test-craftacademy#readme",
   "dependencies": {
+    "angular-toastr": "^1.7.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.12.0",
     "connect-flash": "^0.1.1",
@@ -31,6 +32,7 @@
     "mongoose-autorefs": "^1.0.5",
     "mongoose-type-email": "^1.0.2",
     "morgan": "^1.7.0",
+    "ng-notify": "^0.7.1",
     "owl.carousel": "^2.1.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
