@@ -4,9 +4,9 @@ Schema = mongoose.Schema;
 
 var panierModel = new Schema({
 
-    _id: String,
+    _id: { type : String , unique : true },
     articles: [{
-        idarticle: String,
+        _id: { type : String , unique : true },
         qt:Number,
         resD: Date,
         resF: Date

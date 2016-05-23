@@ -1,6 +1,7 @@
 'use strict';
-var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','toastr'])
+var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies', 'toastr'])
 
+// fonction pour gerée le bug d'affichage de ng-repeat
     .filter('columns', function () {
         return function (items, colNum, index) {
             var cssClass = '',
@@ -13,9 +14,15 @@ var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','toastr']
                     } else {
                         var eqCol = 12;
                         switch (itemsCount) {
-                            case 2: eqCol = 6; break;
-                            case 3: eqCol = 4; break;
-                            case 4: eqCol = 3; break;
+                            case 2:
+                                eqCol = 6;
+                                break;
+                            case 3:
+                                eqCol = 4;
+                                break;
+                            case 4:
+                                eqCol = 3;
+                                break;
                         }
                         cssClass = ' col-md-' + eqCol;
                         if (index && index % itemsCount === 0) {
@@ -24,7 +31,7 @@ var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','toastr']
                     }
                 }
                 else {
-                    var col = 12/colNum;
+                    var col = 12 / colNum;
                     if (col.toString().indexOf('.') != 1) {
                         cssClass = ' col-md-' + col;
                         if (index && index % colNum === 0) {
@@ -36,7 +43,9 @@ var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies','toastr']
             return cssClass;
         };
     });
-app.config(function(toastrConfig) {
+
+// configuration du system de notification
+app.config(function (toastrConfig) {
     angular.extend(toastrConfig, {
         allowHtml: false,
         closeButton: false,
@@ -64,64 +73,68 @@ app.config(function(toastrConfig) {
         toastClass: 'toast'
     });
 });
-
-app.controller('MainCtrl', function($scope,$http) {
-
-
+// main controller
+app.controller('MainCtrl', function ($scope,$cookieStore) {
+    // carousel
     $('.owl-carousel').owlCarousel(
         {
-            navigation : true,
-            loop:true,
-            lazyLoad:true,
-            margin:5,
-            autoplay:true,
-            autoplayTimeout:3000,
-            autoplayHoverPause:true,
-            responsive:{
-                0:{
-                    items:1
+            navigation: true,
+            loop: true,
+            lazyLoad: true,
+            margin: 5,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
                 },
-                600:{
-                    items:3
+                600: {
+                    items: 3
                 },
-                960:{
-                    items:5
+                960: {
+                    items: 5
                 },
-                16000:{
-                    items:6
+                16000: {
+                    items: 6
                 }
             }
         }
-
     );
-    $http({method: 'GET', url: '/user/session'}).
-    success(function(data, status, headers, config) {
-        console.log('je suis log',data,status);
-        $scope.formup = false;
-    }).
-    error(function(data, status, headers, config) {
-        console.log('ménich log',data,status);
-    });
+    // verification de la creation de session
+if ($cookieStore.get('myCookies')){
+
+    $scope.formup = false;
+}
+
+
+
 
 });
 
 
-
 //configuration de routeProvider
 app.config(['$routeProvider',
-    function ($routeProvider) {
+    function ($routeProvider,$cookieStore) {
         $routeProvider.// url page film
         when('/detail:id?', {
             templateUrl: 'src/Views/article.html',
             controller: 'detailController'
         }).when('/panier', {
             templateUrl: 'src/Views/panier2.html',
-            controller: 'panier2Controller'
-        }).// url page series
-        when('/res', {
-            templateUrl: 'src/Views/panier2.html',
-            controller: 'panier2Controller'
-        }).when('/film', {
+            controller: 'panier2Controller',
+            resolve:{
+                "check":function($location,$cookieStore,toastr){
+                    if($cookieStore.get('myCookies')){
+
+                    }else{
+                        $location.path('/film');    //redirect user to home.
+                        toastr.error('vous ne pouvez accéder au panier sans authtification', 'Error');
+                    }
+                }
+            }
+        })
+      .when('/film', {
             templateUrl: 'src/Views/films.html',
             controller: 'articleController'
         }).// url par defaut
@@ -132,64 +145,32 @@ app.config(['$routeProvider',
 
 
 
+// jquery pour le composant login
+$(".panel-body").hide();
 
+$('#register-form-link').click(function (e) {
+    $(".panel-body").show();
+    $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $('#register-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    $(".panel-body").hide();
-
-
-
-
-    $('#register-form-link').click(function (e) {
-        $(".panel-body").show();
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-
-    $('#login-form-link').click(function (e) {
-        $(".panel-body").show();
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#register-form-link').click(function (e) {
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
+$('#login-form-link').click(function (e) {
+    $(".panel-body").show();
+    $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $('#register-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+});
+$('#register-form-link').click(function (e) {
+    $("#register-form").delay(100).fadeIn(100);
+    $("#login-form").fadeOut(100);
+    $('#login-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+});
 
 

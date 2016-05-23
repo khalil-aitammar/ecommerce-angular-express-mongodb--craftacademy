@@ -39,18 +39,23 @@ app.use(cookieParser());
 
 app.use(require('express-session')({
    secret: "private",
+   cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7
+   },
    resave: false,
    saveUninitialized: false
 }));
 // Initialisation de PassportJs ansi que du système de session
 app.use(passport.initialize());
-app.use(passport.session());
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // configure passport
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 
 /** when you're in the '/products' the productRouter will handle it*/
 var Film = require('./models/filmModel');

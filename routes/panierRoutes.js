@@ -4,7 +4,7 @@ var routes = function (Panier) {
     var PanierRouter = express.Router();
 
     PanierRouter.route('/')
-        // ajouter panier
+    // ajouter panier
         .post(function (req, res) {
             var panier = new Panier();
             panier._id = req.body.iduser;
@@ -12,6 +12,7 @@ var routes = function (Panier) {
             res.status(201).send(panier);
         })
         // GET all panier
+
         .get(function (req, res) {
             Panier.find(function (err, Paniers) {
                 if (err) {
@@ -34,30 +35,26 @@ var routes = function (Panier) {
             });
         })
         .put(function (req, res) {
-            Panier.findById(req.params.iduser, function (err, Panier) {
-                if (err) {
-                    res.json({"success": false, "message": "Panier not found"});
-                } else {
-                    console.log("panier articles",Panier.articles[0].idarticle);
-                    Panier.articles.push({
-                        idarticle: req.body._id,
-                        qt:5
-                    });
-                    Panier.save(function (err) {
-                        if (err) return handleError(err)
-                        console.log('Success!');
-                    });
-                }
+            console.log('fdfd',req.params.iduser);
+            console.log('fdfd',req.body._id);
+                    Panier.findOneAndUpdate(
+                        {   _id : req.params.iduser,
+                            'articles._id':req.body._id
+                        },
+                        {   $set:{
+                            'articles.$.qt':55
+                        }
+                        },
 
-            });
+                        function(err,result){
+                            if (!err) {
+                                console.log(result);
+                            }
+                        });
+
+
+
         })
-
-
-
-
-
-
-
 
         .delete(function (req, res) {
 

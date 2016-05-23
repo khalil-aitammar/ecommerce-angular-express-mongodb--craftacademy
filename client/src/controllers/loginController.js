@@ -7,7 +7,7 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
             .success(function (data, status) {
                 if (status === 200 && data.status) {
                     $scope.formup = true;
-
+                    $cookieStore.remove('myCookies');
                     console.log('lougout');
                 } else {
                     console.log('erreur lougout');
@@ -35,10 +35,10 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
             {username: $scope.login, password: $scope.mp})
 
             .success(function (data, status, header) {
-                if (status === 200 && data.status) {
+                if (status === 200) {
                     $scope.formup = false;
-                    console.log($cookieStore);
-                    toastr.success('Authentification réussie', 'success!');
+                    $cookieStore.put('myCookies', data);
+                    toastr.success('Authentification réussie bienvenue ' + data.username, 'success!');
 
                 } else {
                     console.log('loula erreur login');
