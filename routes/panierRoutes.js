@@ -35,23 +35,27 @@ var routes = function (Panier) {
             });
         })
         .put(function (req, res) {
-            console.log('fdfd',req.params.iduser);
-            console.log('fdfd',req.body._id);
-                    Panier.findOneAndUpdate(
-                        {   _id : req.params.iduser,
-                            'articles._id':req.body._id
-                        },
-                        {   $set:{
-                            'articles.$.qt':55
-                        }
-                        },
+            console.log('fdfd', req.params.iduser);
+            console.log('fdfd', req.body._id);
+            console.log('body', req.body.qt);
+            Panier.findOneAndUpdate(
+                {
+                    _id: req.params.iduser,
+                    'articles._id': req.body._id
+                },
+                {
+                    $set: {
+                        'articles.$.qt': req.body.qt
+                    }
+                },
 
-                        function(err,result){
-                            if (!err) {
-                                console.log(result);
-                            }
-                        });
-
+                function (err, result) {
+                    if (!err) {
+                        console.log('put ok ',result);
+                    }else{
+                        res.json({"success": true, "message": "panier modifier film et qt ajouter"});
+                    }
+                });
 
 
         })

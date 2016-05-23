@@ -13,7 +13,7 @@
 
             <p class="panel-heading"> titre : {{film.titre}}</p>
             <div class="panel-body">
-                <img src="img/films/{{film.url_img}}" >
+                <img src="img/films/{{film.url_img}}">
                 <p> description : {{film.description}}</p>
             </div>
 
@@ -23,12 +23,24 @@
 
     </div>
     <div class="col-md-6">
-        <button class="buttondetail" style="vertical-align:middle">
-            <a  ng-click="ajoutpanier()" style="text-decoration:none; color: #193756; ">  <span> <img src="https://maxcdn.icons8.com/Color/PNG/48/Ecommerce/shopping_cart_loaded-48.png" title="Shopping Cart Loaded" width="48">
-                panier
+        <div class="row panierdiscription">
 
-            </span> </a>
-        </button>
+            <p> description : {{film.description}}</p>
+
+        </div>
+        <div class="row">
+                    <input type="number" step="1" value="1" min="1" max="64" ng-model="qt">
+
+                    <button class="buttondetail" style="vertical-align:middle">
+                        <a ng-click="ajoutpanier()" style="text-decoration:none; color: #193756; ">
+                            <span>
+                            <img src="https://maxcdn.icons8.com/Color/PNG/48/Ecommerce/shopping_cart_loaded-48.png"
+                                 title="Shopping Cart Loaded" width="48">
+                            panier
+                            </span>
+                        </a>
+                    </button>
+        </div>
     </div>
 </div>
 
