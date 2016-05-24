@@ -147,24 +147,24 @@ app.config(['$routeProvider',
 
 // jquery pour le composant login
 $(".panel-body").hide();
-
-$('#register-form-link').click(function (e) {
-    $(".panel-body").show();
-    $("#login-form").delay(100).fadeIn(100);
-    $("#register-form").fadeOut(100);
-    $('#register-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-});
-
 $('#login-form-link').click(function (e) {
-    $(".panel-body").show();
+    $(".panel-body").toggle();
     $("#login-form").delay(100).fadeIn(100);
     $("#register-form").fadeOut(100);
     $('#register-form-link').removeClass('active');
     $(this).addClass('active');
     e.preventDefault();
 });
+$('#register-form-link').click(function (e) {
+    $(".panel-body").toggle();
+    $("#login-form").delay(100).fadeIn(100);
+    $("#register-form").fadeOut(100);
+    $('#register-form-link').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+});
+
+
 $('#register-form-link').click(function (e) {
     $("#register-form").delay(100).fadeIn(100);
     $("#login-form").fadeOut(100);
