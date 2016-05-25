@@ -8,6 +8,10 @@ var panierModel = new Schema({
     articles: [{
         _id: { type : String , unique : true },
         qt:Number,
+        titre:String,
+        description:String,
+        url_img:String,
+        prix:Number,
         resD: Date,
         resF: Date
     }],

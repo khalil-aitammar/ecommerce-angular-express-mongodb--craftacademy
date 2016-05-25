@@ -34,10 +34,33 @@ var routes = function (Panier) {
                 }
             });
         })
+        // post nouvel article
+        .post(function (req, res) {
+            Panier.findById(req.params.iduser, function (err, Panier) {
+                if (err) {
+                    res.json({"success": false, "message": "Panier not found"});
+                } else {
+
+                    Panier.articles.push({
+                        _id: req.body._id,
+                        qt: req.body.qt,
+                        titre:req.body.titre,
+                        description:req.body.description,
+                        prix:req.body.prix,
+                        url_img:req.body.url_img,
+                    });
+                    Panier.save(function (err) {
+                        if (err) return handleError(err)
+                        console.log('Success!');
+                    });
+                }
+            });
+        })
+
+
+        // put modif article
         .put(function (req, res) {
-            console.log('fdfd', req.params.iduser);
-            console.log('fdfd', req.body._id);
-            console.log('body', req.body.qt);
+
             Panier.findOneAndUpdate(
                 {
                     _id: req.params.iduser,
@@ -51,8 +74,8 @@ var routes = function (Panier) {
 
                 function (err, result) {
                     if (!err) {
-                        console.log('put ok ',result);
-                    }else{
+                        console.log('put ok ', result);
+                    } else {
                         res.json({"success": true, "message": "panier modifier film et qt ajouter"});
                     }
                 });

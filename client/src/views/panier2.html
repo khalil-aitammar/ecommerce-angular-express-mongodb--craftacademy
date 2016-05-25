@@ -3,5 +3,30 @@
 <div ng-controller="panier2Controller">
 
 
+    <div class="allarticle">
+        <div ng-repeat="x in panierfilm | filter : myvar" class="{{x | columns:6:$index}} blocarticle">
+            <div class="article">
+
+                    <p class="list-group-item">{{x.titre}}</p>
+
+
+                    <img class="article img-thumbnail" src="img/films/{{x.url_img}}">
+
+
+                    <div class="menu-item list-group-item text-right">
+
+
+                        <img src="https://maxcdn.icons8.com/Color/PNG/24/Ecommerce/add_shopping_cart-24.png"
+                             class="pull-left" title="Add Shopping Cart" width="30"
+                             style="position: relative;bottom: 7px;">
+                        Prix
+                        <span class="glyphicon glyphicon-euro"></span> {{x.prix}}
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </div>
 </html>
