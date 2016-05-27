@@ -12,7 +12,8 @@ var express = require('express'),
     http = require('http');
 
 // connexion vers la base de donnée ecom
-mongoose.connect('mongodb://localhost/ecom', function(err) {
+mongoose.connect('mongodb://khalil:123@ds011472.mlab.com:11472/ecom', function(err) {
+
    if (err) {
       console.log("Connection to mongoDB failed => " + err);
       // throw err;
