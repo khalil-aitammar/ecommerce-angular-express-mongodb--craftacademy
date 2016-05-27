@@ -6,7 +6,7 @@ var panierModel = new Schema({
 
     _id: { type : String , unique : true },
     articles: [{
-        _id: { type : String , unique : true },
+        _id: { type : String  },
         qt:Number,
         titre:String,
         description:String,

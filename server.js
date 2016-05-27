@@ -68,7 +68,7 @@ panierRouter = require('./routes/panierRoutes')(Panier);
 app.use('/api/panier', panierRouter);
 
 // routes
-app.use('/user/', userRoutes);
+app.use('/user', userRoutes);
 
 
 app.use(express.static(__dirname+'/client'));

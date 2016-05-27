@@ -243,12 +243,6 @@ a:link {
     border-color: #1CA347;
 }
 
-.loginrow {
-    display: flex;
-    position: absolute;
-    height: 50px;
-    margin: 0px;
-}
 
 /* css  agenda  */
 .shopping-cart button {
@@ -1013,4 +1007,16 @@ p.adam{
     .main {
         padding: 50px 0;
     }
+}
+/* datapicker**/
+
+ .full button span {
+     background-color: limegreen;
+     border-radius: 32px;
+     color: black;
+ }
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
 }

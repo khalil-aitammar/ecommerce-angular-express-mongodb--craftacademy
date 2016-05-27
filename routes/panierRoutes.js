@@ -40,6 +40,7 @@ var routes = function (Panier) {
                 if (err) {
                     res.json({"success": false, "message": "Panier not found"});
                 } else {
+                    console.log('panier route',Panier.articles);
 
                     Panier.articles.push({
                         _id: req.body._id,

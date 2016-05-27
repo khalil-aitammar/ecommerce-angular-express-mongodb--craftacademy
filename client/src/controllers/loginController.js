@@ -38,6 +38,7 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
                 if (status === 200) {
                     $scope.formup = false;
                     $cookieStore.put('myCookies', data);
+                    console.log('cookies',data);
                     toastr.success('Authentification réussie bienvenue ' + data.username, 'success!');
 
                 } else {

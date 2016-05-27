@@ -12,7 +12,7 @@ app.controller('panier2Controller', function ($scope, $http, $cookieStore, toast
                 method: 'GET',
                 url: '/api/panier/' + iduser
             }).then(function successCallback(response) {
-
+console.log(response);
                 var panier = response.data.articles;
                     $scope.panierfilm=panier;
                 console.log('data panier', panier);

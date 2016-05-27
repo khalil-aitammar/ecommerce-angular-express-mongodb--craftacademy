@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies', 'toastr'])
+var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies', 'toastr', 'ui.bootstrap'])
 
 // fonction pour gerée le bug d'affichage de ng-repeat
     .filter('columns', function () {
@@ -74,7 +74,7 @@ app.config(function (toastrConfig) {
     });
 });
 // main controller
-app.controller('MainCtrl', function ($scope,$cookieStore) {
+app.controller('MainCtrl', function ($scope, $cookieStore) {
     // carousel
     $('.owl-carousel').owlCarousel(
         {
@@ -102,12 +102,10 @@ app.controller('MainCtrl', function ($scope,$cookieStore) {
         }
     );
     // verification de la creation de session
-if ($cookieStore.get('myCookies')){
+    if ($cookieStore.get('myCookies')) {
 
-    $scope.formup = false;
-}
-
-
+        $scope.formup = false;
+    }
 
 
 });
@@ -115,34 +113,54 @@ if ($cookieStore.get('myCookies')){
 
 //configuration de routeProvider
 app.config(['$routeProvider',
-    function ($routeProvider,$cookieStore) {
-        $routeProvider.// url page film
+    function ($routeProvider, $cookieStore, $locationProvider) {
+        $routeProvider.// url page
+
         when('/detail:id?', {
             templateUrl: 'src/Views/article.html',
             controller: 'detailController'
-        }).when('/panier', {
-            templateUrl: 'src/Views/panier2.html',
-            controller: 'panier2Controller',
-            resolve:{
-                "check":function($location,$cookieStore,toastr){
-                    if($cookieStore.get('myCookies')){
+        }).
+        when('/panier', {
+                templateUrl: 'src/Views/panier2.html',
+                controller: 'panier2Controller',
+                resolve: {
+                    "check": function ($location, $cookieStore, toastr) {
+                        if ($cookieStore.get('myCookies')) {
 
-                    }else{
-                        $location.path('/film');    //redirect user to home.
-                        toastr.error('vous ne pouvez accéder au panier sans authtification', 'Error');
+                        } else {
+                            $location.path('/film');
+                            toastr.error('vous ne pouvez accéder au panier sans authtification', 'Error');
+                        }
                     }
                 }
-            }
-        })
-      .when('/film', {
-            templateUrl: 'src/Views/films.html',
-            controller: 'articleController'
-        }).// url par defaut
+            })
+            .when('/admin', {
+                templateUrl: 'src/Views/admin.html',
+                controller: 'adminController',
+                resolve: {
+                    "check": function ($location, $cookieStore, toastr) {
+                        if ($cookieStore.get('myCookies').role == 'admin') {
+                        
+                            $(".owl-carousel").hide();
+
+                        } else {
+                            $(".bloctop").show();
+                            $(".owl-carousel").show();
+                            $location.path('/film');
+                            toastr.error('vous ne pouvez accéder au panaux admin', 'Error');
+                        }
+                    }
+                }
+            })
+            .when('/film', {
+                templateUrl: 'src/Views/films.html',
+                controller: 'articleController'
+            }).// url par defaut
         otherwise({
             redirectTo: '/film'
         });
-    }]);
 
+    }]);
 
 
 // jquery pour le composant login

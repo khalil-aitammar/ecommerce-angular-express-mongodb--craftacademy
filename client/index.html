@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css"/>
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/angular-growl.min.css">
     <link rel="stylesheet" href="css/angular-toastr.min.css">
+    <link rel="stylesheet" href="css/angular-datepicker.min.css">
 
 
 <body ng-app="ecomm" ng-controller="MainCtrl" ng-init="formup=true">
@@ -21,7 +21,10 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="col-md-7">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Shopping{{khalil}}</a>
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="img/monitor.png" style="height: auto;width: 50px ;    margin-top: -15px;">
+
+                    </a>
 
                 </div>
                 <ul class="nav navbar-nav">
@@ -46,7 +49,7 @@
                     </a>
             </div>
             <!-- login -->
-            <div class="col-md-5" loginrow ng-controller="loginController">
+            <div class="col-md-5 " ng-controller="loginController">
                 <div class="row ">
 
                     <div class="col-md-6 col-md-offset-3">
@@ -55,7 +58,7 @@
                                 <img src="https://maxcdn.icons8.com/Color/PNG/48/Business/approve-48.png"
                                      title="Approve" width="48">
                                 {{login}}&nbsp;
-                                <a href="#" class="btn btn-info ">
+                                <a href="#">
                                     <input type="submit"
                                            tabindex="4" ng-click="logout()"
                                            class="btn btn-info" value="Log In">
@@ -248,9 +251,10 @@
 <script type="text/javascript" src="src/controllers/reservationController.js"></script>
 <script type="text/javascript" src="src/controllers/loginController.js"></script>
 <script type="text/javascript" src="src/controllers/panier2Controller.js"></script>
+<script type="text/javascript" src="src/controllers/adminController.js"></script>
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/angular-growl.min.js"></script>
 <script type="text/javascript" src="js/angular-toastr.min.js"></script>
 <script type="text/javascript" src="js/angular-toastr.tpls.min.js"></script>
+<script type="text/javascript" src="js/angular-datepicker.min.js"></script>
 </body>
 </html>

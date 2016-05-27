@@ -4,6 +4,44 @@ var passport = require('passport');
 
 var User = require('../models/userModel');
 
+router.get('/', function(req, res) {
+    User.find(function (err,Users) {
+        if(err){console.log(err)};
+        res.json(Users);
+    });
+});
+
+router.delete(function (req, res) {
+
+    User.findById(req.params.id, function (err, board) {
+        if (err) {
+            res.json({"success": false, "message": "User not found"});
+        } else {
+            //Remove the board
+            User.remove({_id: req.params.id}, function (err) {
+                if (err) {
+                    res.json({"success": false, "message": "Error removing board"});
+                } else {
+                    //Remove all cards associated to the board ID
+                    Card.remove({board: req.params.id}, function (err) {
+                        if (err) {
+                            res.json({"success": false, "message": "Error removing board cards"});
+                        } else {
+                            res.json({
+                                "success": true,
+                                "message": "Board with id = " + req.params.id + " deleted"
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+
+
+
 
 router.post('/register', function(req, res) {
     User.register(new User({ username: req.body.username, usermail: req.body.usermail }),
@@ -43,7 +81,8 @@ router.post('/login', function(req, res, next) {
                 status: 'Login successful!',
                 userid:user._id,
                 usermail: user.usermail,
-                username:user.username
+                username:user.username,
+                role:user.role
             });
 
         });
