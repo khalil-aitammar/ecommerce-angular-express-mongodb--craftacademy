@@ -27,7 +27,7 @@
 
 
         <div class="row">
-            <input type="number" step="1" value="1" min="1" max="64" ng-model="qt">
+            <input type="number"  ng-model="qt" ng-init="qt=1">
 
             <button class="buttondetail" style="vertical-align:middle">
                 <a ng-click="ajoutpanier()" style="text-decoration:none; color: #193756; ">
@@ -41,7 +41,9 @@
 
 
         </div>
-        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">louer l'article {{film.titre}} </button>
+        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">louer l'article
+            {{film.titre}}
+        </button>
         <div uib-collapse="isCollapsed">
             <div>
                 <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>

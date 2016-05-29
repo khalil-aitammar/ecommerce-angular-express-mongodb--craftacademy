@@ -83,34 +83,26 @@ var routes = function (Panier) {
 
 
         })
+    PanierRouter.route('/:iduser/:idarticle')
+        // remove articles
+        .post(function (req, res) {
 
-        .delete(function (req, res) {
+            Panier.update(
+                { _id: req.params.iduser },
+                { $pull: { articles : { _id : req.params.idarticle } } },
+                { safe: true },
+                function removeConnectionsCB(err, obj) {
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        res.json({"success": true, "message": "film remove du panier"});
+                    }
+                });
+        })
 
-            Board.findById(req.params.id, function (err, board) {
-                if (err) {
-                    res.json({"success": false, "message": "Board not found"});
-                } else {
-                    //Remove the board
-                    Board.remove({_id: req.params.id}, function (err) {
-                        if (err) {
-                            res.json({"success": false, "message": "Error removing board"});
-                        } else {
-                            //Remove all cards associated to the board ID
-                            Card.remove({board: req.params.id}, function (err) {
-                                if (err) {
-                                    res.json({"success": false, "message": "Error removing board cards"});
-                                } else {
-                                    res.json({
-                                        "success": true,
-                                        "message": "Board with id = " + req.params.id + " deleted"
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
-            });
-        });
+
+
 
 
     return PanierRouter
