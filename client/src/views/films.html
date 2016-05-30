@@ -7,17 +7,15 @@
                      width="96"> Derniers Films ajoutes </h2>
         </div>
         <div class="allarticle">
-            <div ng-repeat="x in film | filter : myvar" class="{{x | columns:6:$index}} blocarticle">
+            <div ng-repeat="x in film | filter : myvar | startfrom:(currentPage - 1)* pageSize |limitTo:pageSize"
+                 class="{{x | columns:6:$index}} blocarticle">
                 <div class="article">
                     <a href="/#/detail{{x._id}}">
                         <p class="list-group-item">{{x.titre}}</p>
 
-
                         <img class="article img-thumbnail" src="img/films/{{x.url_img}}">
 
-
                         <div class="menu-item list-group-item text-right">
-
 
                             <img src="https://maxcdn.icons8.com/Color/PNG/24/Ecommerce/add_shopping_cart-24.png"
                                  class="pull-left" title="Add Shopping Cart" width="30"
@@ -27,10 +25,14 @@
                         </div>
                     </a>
                 </div>
-            </div>
-        </div>
-    </div>
 
+
+            </div>
+
+        </div>
+
+    </div>
+    <uib-pagination total-items="film.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" boundary-link-numbers="true"></uib-pagination>
 </div>
 
 <!-- article fin -->

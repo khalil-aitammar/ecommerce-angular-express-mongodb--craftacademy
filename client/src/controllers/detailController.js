@@ -1,9 +1,6 @@
 'use strict';
 app.controller('detailController', function ($scope, $http, $routeParams, $cookieStore, toastr) {
 
-
-
-
     // page panier , recuperer le film et id user
     var filmid = $routeParams.id;
     var trouver = false;
@@ -13,9 +10,8 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
     }).then(function successCallback(response) {
         $scope.film = response;
         $scope.film = $scope.film.data;
-
-
     })
+    
 // ajouter dans le panier de l'utilisateur
     $scope.ajoutpanier = function () {
         trouver = false;
@@ -129,11 +125,11 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
     $scope.events = [
         {
             date: tomorrow,
-            status: 'full'
+
         },
         {
             date: afterTomorrow,
-            status: 'partially'
+
         }
     ];
 
@@ -155,7 +151,7 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
         return '';
     }
 
-$scope.reservation= function () {
+    $scope.reservation= function () {
     console.log('new data',$scope.dt);
 }
 

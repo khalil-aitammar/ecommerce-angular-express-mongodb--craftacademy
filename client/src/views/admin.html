@@ -11,7 +11,7 @@
                          title="User Group Man Woman" width="96"> gestion des user</h2>
             </div>
             <div class="table-responsive">
-                <table id="mytable" class="table table-bordred table-striped">
+                <table class="table table-bordred table-striped">
                     <thead>
                     <th>username</th>
                     <th>Email</th>
@@ -23,9 +23,9 @@
                     </thead>
                     <tbody>
 
-                    <tr ng-repeat="x in user">
+                    <tr ng-repeat="x in user ">
                         <td>{{x.username}}</td>
-                        <td>{{x.usermail}} khalil{{x._id}}</td>
+                        <td>{{x.usermail}}</td>
                         <td>{{x.num}}</td>
                         <td>{{x.role}}</td>
                         <td>{{x.create_date | date : "dd.MM.y" }}</td>
@@ -39,7 +39,7 @@
                         <td>
 
                             <button class="btn btn-danger btn-xs" ng-click="removeUser(x,$index)">
-                                fffff
+                                remove
                             </button>
                             </p>
                         </td>
@@ -78,10 +78,12 @@
             <img class="icon icons8-Documentary"
                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEjElEQVRoQ+1Zz08bRxR+s8YGAwa7oSgkpSWKRKVUat1Dq0ArlUg55BZyCDk1Xv4DckilSkV1lUqVkkPoX4CdUzGHmlsPjUTVCqOqVc2pSitUkjYiNQTbBOoY8L6+cYxjj2d/OLtALNmSJWv3zcz3vfnem29kBg3+YQ2OH5oEjnoHmzvQ3AGbGXBcQtOXh4MKg4vIcASQBYv4GCYZsnkNYW58diFpE3PVcEcJ3LkyNIHAbusBRIQMYxgOzSS+doqEYwSiV4bjBOqiFWCIGFdjiUtWYs1iHCFglnkZCAZ47epMYsoMoNl7QwJ3Lp9VNYWFqrWMkVBsMbo/cVHzCvxmtpD4nsuJvufs1oSUwPRo0M9avd8yYCMyYAg4j/ncpfF4MhMdGw7Tef55vQSK8QhfhGIL4RcaWxokJRAdG5oHxj4ympiTUGcS5/Ri2/oGwHfmfVDcHsgu/QRPV1dqp0P8IRRLSJNklVQNAS4bVJRpKxMwTRvXGJtijHWL8ccvfAyuDl/x8U5mHdbuxmqm5DJSYwsBK2vpxdQQEDNqmEnKIAIEzQjsZtYgdXdWQgCz1I38jhKIjA1Rr36eUaNMFvs64JJMbpx415n3SEJtkFn68fAkZERAzCT18ywV+tRLVcQyCelmkiSkIZug03VeJiPDJkDkUcHg+DeLkuq2LirbRXx1djHy0h1kVtooCC2wHitB+Z0LzSyMWs+zfqTuQaZ4vHHds4BLZyc3yg+yyqn5TpDjDOvJidcMOdWwExZif11TK4GMqbxV8gEUTLYYI1w2ejkp2WnKLo5UjqPR3E7H7VoHcV1dAmr4qwHYc90m1ASeDYgDdzybsN21CrueLdhz50BT9sCT94Frrw28273Qvv2qhCOukH1IQkvhWiT8qa3iNdyBIvhCCzdoNYcMB57p+RPy3rShhDmRwNogeP/rlcVliOm7RiTUyZsqJa7sCCI3rkuTLX2oTt6Sevtt30PY6P29rtrrzPZDYP1N2Zg5AiUtZBE8H1wfgc9uZqiAq/zNi4DfR93+pA+Opd4SSOBK5MYnp0RmMvD1E5i8RfX3/MNl82//z9LMfx/6rur5+egFaVzP6ts1chKzqgfeNoHUiV9I81UdswzSKgGmtcCJ+x+AornLYysJGIG3RcAo+3xiqwR4rH99EHzZ18sEHi7fK/8+eVpaJ1KylVusV8RlCaWP3YMt/9+6hVsPAS+11p5H7xwuAVE+ImCzliTWRP/y+SaBuiT06LVF2G3d0i3a5g6UMtAQRezOd8Lxf84ebg00fBvl6XLiIFMKLuh78OHhH2ScQL4tDamTv9qyEl0bp6A7fbpqjoOzEhIz96T7AdnoP8yajvS9eIAVgxDuR768PiAOcMrMSe10NrAMm6/8VReJjs0+8D8erJJOaYIDtNPPbmNJ0VLzhXPtKUjTThTcTw2JcM13ku8RZfMs+5ilW1nwwC40fI3SrWyKtjpI18o3RLT8fpDrWKf62ADNVSi/5nJpzQWgg+4Alc5zXzY0V5JuYxMHeqWsSyNHHOzIPzRHyaFJ4Cizz9du+B34H6H5b09coDQQAAAAAElFTkSuQmCC"
                  width="48" height="48">
+
             Ajouter un articles
         </button>
+
         <div class="allarticle">
-            <div ng-repeat="x in film | filter : myvar" class="{{x | columns:6:$index}} blocarticle">
+            <div ng-repeat="x in film  | filter : myvar" class="{{x | columns:6:$index}} blocarticle">
                 <div class="article">
                     <a href="/#/detail{{x._id}}">
                         <p class="list-group-item">{{x.titre}}</p>
@@ -104,178 +106,208 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 
+<div id="popup-1" class="slickModal">
+    <div class="window">
+        <!-- Your popup content -->
+        <div>
+            <form class="form-horizontal ">
+                <fieldset>
 
-    <div id="popup-1" class="slickModal">
-        <div class="window">
-            <!-- Your popup content -->
-            <div>
-                <form class="form-horizontal ">
-                    <fieldset>
+
+                    <legend class="modal-header list-group-item active " style="text-align: center;font-size:large;">
+                        Ajouter article
+                    </legend>
+                    <br>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="titre">titre</label>
+
+                        <div class="col-md-4">
+                            <input id="titre" name="titre" type="text" ng-model="titrearticle"
+                                   placeholder="The Revenant "
+                                   class="form-control input-md" required>
+
+                        </div>
+                    </div>
 
 
-                        <legend class="modal-header list-group-item active">ajouter article</legend>
+                    <div class="form-group">
+
+                        <label class="col-md-4 control-label" for="selectbasic">Select Basic</label>
+                        <div class="col-md-4">
+                            <select id="selectbasic" name="selectbasic" class="form-control" ng-model="genrearticle"
+                                    required>
+                                <option value="Documentaires">Documentaires</option>
+                                <option value="Spectacles">Spectacles</option>
+                                <option value="films">films</option>
+                                <option value="Séries">Séries</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="prix">prix</label>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input id="prix" name="prix" class="form-control" placeholder="20" type="text"
+                                       required="" ng-model="prixarticle" required>
+                                <span class="input-group-addon">euro</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="image">image</label>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">https://</span>
+                                <input id="image" name="image" class="form-control" placeholder="deadpool.jpeg"
+                                       type="text" required="" ng-model="urlimgarticle" required>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="description">description</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="description" name="description"
+                                      ng-model="descriptionarticle" required></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <h1>parametre de reservation</h1>
                         <br>
+                        <pre>sélectionner la date de debut: <em>{{dt | date:'fullDate' }}</em></pre>
+                        <pre>sélectionner la date de fin: <em>{{dt2 | date:'fullDate' }}</em></pre>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="titre">titre</label>
-
-                            <div class="col-md-4">
-                                <input id="titre" name="titre" type="text" placeholder="The Revenant "
-                                       class="form-control input-md" required="">
-
-                            </div>
+                        <div style="display:inline-block; min-height:290px;">
+                            <uib-datepicker ng-model="dt" class="well well-sm"
+                                            datepicker-options="options"></uib-datepicker>
+                        </div>
+                        <div style="display:inline-block; min-height:290px; padding-left: 50px;">
+                            <uib-datepicker ng-model="dt2" class="well well-sm"
+                                            datepicker-options="options"></uib-datepicker>
                         </div>
 
+                        <div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">genre</label>
-                            <div class="col-md-4">
-                                <input id="textinput" name="textinput" type="text" placeholder="action"
-                                       class="form-control input-md" required="">
-
-                            </div>
+                            <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+                            <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
                         </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+
+                        <div class="col-md-8 text-center" style=" margin:0px auto;">
+                            <button type="submit" id="validerajoutarticle" name="validerajoutarticle"
+                                    class="btn btn-success"
+                                    ng-click="ajouterarticle()">
+                                valider
+                            </button>
 
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="prix">prix</label>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <input id="prix" name="prix" class="form-control" placeholder="20" type="text"
-                                           required="">
-                                    <span class="input-group-addon">euro</span>
-                                </div>
-
-                            </div>
+                            <button class="btn btn-danger closeModal ">annuler</button>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="image">image</label>
-                            <div class="col-md-4">
-                                <div class="input-group">
-                                    <span class="input-group-addon">https://</span>
-                                    <input id="image" name="image" class="form-control" placeholder="deadpool.jpeg"
-                                           type="text" required="">
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="description">description</label>
-                            <div class="col-md-4">
-                                <textarea class="form-control" id="description" name="description"></textarea>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <div class="col-md-8 text-center" style=" margin:0px auto;">
-                                <button id="validerajoutarticle" name="validerajoutarticle" class="btn btn-success"
-                                ng-click="ajouterarticle()">
-                                    valider
-                                </button>
-                                <button class="btn btn-danger closeModal ">annuler</button>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
-            </div>
-
-
-
-
+                </fieldset>
+            </form>
         </div>
+
+
     </div>
+</div>
 
-    <script>
+<script>
 
-        $(document).ready(function () {
-            $("#popup-1").slickModals({
-                popupType: "",
-                delayTime: 1000,
-                exitTopDistance: 40,
-                scrollTopDistance: 400,
-                setCookie: false,
-                cookieDays: 0,
-                cookieTriggerClass: "setCookie-1",
-                cookieName: "slickModal-1",
-                overlayBg: true,
-                overlayBgColor: "rgba(0,0,0,0.85)",
-                overlayTransition: "ease",
-                overlayTransitionSpeed: "0.4",
-                bgEffect: "scale",
-                blurBgRadius: "2px",
-                scaleBgValue: "0.9",
-                windowWidth: "800px",
-                windowHeight: "500px",
-                windowLocation: "center",
-                windowTransition: "ease",
-                windowTransitionSpeed: "0.4",
-                windowTransitionEffect: "zoomIn",
-                windowShadowOffsetX: "0",
-                windowShadowOffsetY: "0",
-                windowShadowBlurRadius: "20px",
-                windowShadowSpreadRadius: "0",
+    $(document).ready(function () {
+        $("#popup-1").slickModals({
+            popupType: "",
+            delayTime: 1000,
+            exitTopDistance: 40,
+            scrollTopDistance: 400,
+            setCookie: false,
+            cookieDays: 0,
+            cookieTriggerClass: "setCookie-1",
+            cookieName: "slickModal-1",
+            overlayBg: true,
+            overlayBgColor: "rgba(0,0,0,0.85)",
+            overlayTransition: "ease",
+            overlayTransitionSpeed: "0.4",
+            bgEffect: "scale",
+            blurBgRadius: "2px",
+            scaleBgValue: "0.9",
+            windowWidth: "800px",
+            windowHeight: "900px",
+            windowLocation: "center",
+            windowTransition: "ease",
+            windowTransitionSpeed: "0.4",
+            windowTransitionEffect: "zoomIn",
+            windowShadowOffsetX: "0",
+            windowShadowOffsetY: "0",
+            windowShadowBlurRadius: "20px",
+            windowShadowSpreadRadius: "0",
 
-                windowRadius: "12px",
-                windowMargin: "auto",
-                windowPadding: "30px",
-                closeButton: "icon",
-                reopenClass: "openSlickModal-1",
-            });
+            windowRadius: "12px",
+            windowMargin: "auto",
+            windowPadding: "30px",
+            closeButton: "icon",
+            reopenClass: "openSlickModal-1",
         });
-        $(document).ready(function () {
-            $("#mytable #checkall").click(function () {
-                if ($("#mytable #checkall").is(':checked')) {
-                    $("#mytable input[type=checkbox]").each(function () {
-                        $(this).prop("checked", true);
-                    });
+    });
+    $(document).ready(function () {
+        $("#mytable #checkall").click(function () {
+            if ($("#mytable #checkall").is(':checked')) {
+                $("#mytable input[type=checkbox]").each(function () {
+                    $(this).prop("checked", true);
+                });
 
-                } else {
-                    $("#mytable input[type=checkbox]").each(function () {
-                        $(this).prop("checked", false);
-                    });
-                }
-            });
-
-            $("[data-toggle=tooltip]").tooltip();
+            } else {
+                $("#mytable input[type=checkbox]").each(function () {
+                    $(this).prop("checked", false);
+                });
+            }
         });
-    </script>
-    <style>
-        .titre > h2 {
-            font-size: 50px;
-            color: #ecf0f1;
-            text-align: center;
-            font-family: areal;
-        }
 
-        .addarticle {
-            border: 2px solid #3945af;
-            background-color: #526daf; /* Green */
-            border-radius: 4px;
-            color: white;
-            padding: 14px 28px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px 0px 25px;
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.4s;
-            cursor: pointer;
-        }
+        $("[data-toggle=tooltip]").tooltip();
+    });
+</script>
+<style>
+    .titre > h2 {
+        font-size: 50px;
+        color: #ecf0f1;
+        text-align: center;
+        font-family: areal;
+    }
 
-        .addarticle:hover {
-            background-color: white;
-            color: black;
-            border: 2px solid #4CAF50;
-        }
+    .addarticle {
+        border: 2px solid #3945af;
+        background-color: #526daf; /* Green */
+        border-radius: 4px;
+        color: white;
+        padding: 14px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px 0px 25px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
 
-    </style>
+    .addarticle:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+    }
+
+</style>

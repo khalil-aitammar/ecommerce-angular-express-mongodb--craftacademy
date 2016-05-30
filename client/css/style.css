@@ -99,6 +99,8 @@ display: inline-block;
 }
 
 .article {
+    max-height: 245px;
+    max-width: 125px;
     -moz-border-radius-bottomleft: 2px;
     -moz-border-radius-bottomleft: 2px;
     -webkit-border-bottom-left-radius: 2px;
@@ -109,6 +111,10 @@ display: inline-block;
     -webkit-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
 
+}
+.article .img-thumbnail{
+    height: 160px;
+    width: 125px;
 }
 
 .article:hover {

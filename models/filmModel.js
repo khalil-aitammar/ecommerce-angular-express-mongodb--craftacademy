@@ -9,7 +9,8 @@ var filmModel = new Schema({
     genre: String,
     url_img: {type: String, required: true},
     prix: {type: Number, required: true},
- 
+    dateresD:{type: Date, required: true},
+    dateresF:{type: Date, required: true},
     create_date: {
         type: Date,
         default: Date.now

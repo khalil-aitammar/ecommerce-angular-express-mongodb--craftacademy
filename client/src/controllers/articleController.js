@@ -1,6 +1,10 @@
 'use strict';
 app.controller('articleController', function ($scope, $http, $cookieStore) {
 
+    $scope.pageSize=21;
+    $scope.currentPage=1;
+
+
     $http({
         method: 'GET',
         url: '/api/films'

@@ -4,8 +4,9 @@ var routes = function(Film){
     var FilmRouter = express.Router();
 
     FilmRouter.route('/')
-   
+
         .post(function(req,res){
+            console.log(req.body.dateresD,req.body.dateresF);
             var film = new Film();
             film.titre=req.body.titre;
             film.description=req.body.description;
@@ -16,6 +17,7 @@ var routes = function(Film){
             film.dateresF=req.body.dateresF;
             film.save();
             res.status(201).send(film);
+            console.log(film);
         })
         .get(function(req,res){
        

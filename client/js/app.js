@@ -1,6 +1,18 @@
 'use strict';
 var app = angular.module('ecomm', ['ngRoute', 'ngAnimate', 'ngCookies', 'toastr', 'ui.bootstrap'])
 
+
+    .filter('startfrom',function () {
+        return function (data,start) {
+
+                if (!data || !data.length) { return; }
+                start = +start; //parse to int
+                return data.slice(start);
+            }
+
+
+    })
+
 // fonction pour gerée le bug d'affichage de ng-repeat
     .filter('columns', function () {
         return function (items, colNum, index) {
@@ -162,6 +174,8 @@ app.config(['$routeProvider',
         });
 
     }]);
+
+
 
 
 // jquery pour le composant login

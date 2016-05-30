@@ -55,7 +55,6 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
 
     }
     $scope.register = function () {
-
         $http.post('/user/register', {username: $scope.username, password: $scope.passuser, usermail: $scope.usermail})
             .success(function (data, status) {
                 console.log('register succés', data, status);
@@ -67,12 +66,12 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
                         toastr.success('utilisateur crée  ' + $scope.username, 'success!');
                     })
                     .error(function (data, status) {
-                        console.log(' ajout panier erreur ', data, status);
+                        toastr.error('erreur lors de lenregistrement', 'Error');
                     });
 
             })
             .error(function (data, status) {
-                console.log('register erreur', data, status);
+                toastr.error('erreur lors de lenregistrement', 'Error');
 
             })
 
