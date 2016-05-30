@@ -76,6 +76,7 @@ app.config(function (toastrConfig) {
 // main controller
 app.controller('MainCtrl', function ($scope, $cookieStore) {
     // carousel
+    
     $('.owl-carousel').owlCarousel(
         {
             navigation: true,

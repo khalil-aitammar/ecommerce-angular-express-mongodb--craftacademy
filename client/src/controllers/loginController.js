@@ -64,6 +64,7 @@ app.controller('loginController', function ($scope, $http, $window, $cookieStore
                 $http.post('/api/panier', {iduser: iduserdata})
                     .success(function (data, status) {
                         console.log('panier', data);
+                        toastr.success('utilisateur crée  ' + $scope.username, 'success!');
                     })
                     .error(function (data, status) {
                         console.log(' ajout panier erreur ', data, status);

@@ -60,7 +60,7 @@ passport.deserializeUser(User.deserializeUser());
 
 /** when you're in the '/products' the productRouter will handle it*/
 var Film = require('./models/filmModel');
-filmRouter = require('./Routes/filmRoutes')(Film);
+filmRouter = require('./routes/filmRoutes')(Film);
 app.use('/api/films', filmRouter);
 
 

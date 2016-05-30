@@ -9,8 +9,11 @@ var routes = function(Film){
             var film = new Film();
             film.titre=req.body.titre;
             film.description=req.body.description;
+            film.genre=req.body.genre;
             film.url_img=req.body.url_img;
             film.prix=req.body.prix;
+            film.dateresD=req.body.dateresD;
+            film.dateresF=req.body.dateresF;
             film.save();
             res.status(201).send(film);
         })
