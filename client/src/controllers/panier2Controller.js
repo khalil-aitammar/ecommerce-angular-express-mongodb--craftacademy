@@ -24,21 +24,7 @@ app.controller('panier2Controller', function ($scope, $http, $cookieStore, toast
           
             })
 // remove article du panier
-            $scope.removeArticle = function (id, $index) {
-
-                $http({
-                    method: 'POST',
-                    url: '/api/panier/' + iduser + '/' + id
-                }).then(function successCallback(response) {
-
-                    $scope.panierfilm.splice($index, 1);
-
-                }).then(function successCallback(response) {
-
-                })
-
-
-            }
+      
 
 
         }

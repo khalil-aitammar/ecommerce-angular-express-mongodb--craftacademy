@@ -56,7 +56,7 @@ app.controller('adminController', function ($scope, $http, $window, $cookieStore
             console.log('film', $scope.film);
         })
 
-
+// ajouter un article
     $scope.ajouterarticle = function () {
         console.log($scope.titrearticle,$scope.prixarticle,$scope.urlimgarticle);
 
@@ -83,8 +83,20 @@ app.controller('adminController', function ($scope, $http, $window, $cookieStore
      toastr.error('formulaire non complet', 'Error');
     }
     }
+// remove article
+    $scope.removeArticle = function (id, $index) {
+
+        $http({
+            method: 'GET',
+            url: '/api/films/remove/' + id
+        }).then(function successCallback(response) {
+
+            $scope.film.splice($index, 1);
+
+        })
 
 
+    }
 
 
 // calendrer
