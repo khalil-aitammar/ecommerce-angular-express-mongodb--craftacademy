@@ -14,9 +14,14 @@ app.controller('panier2Controller', function ($scope, $http, $cookieStore, toast
                 console.log(response);
                 var panier = response.data.articles;
                 $scope.panierfilm = panier;
-                console.log('data panier', panier);
-            }).then(function successCallback(response) {
+                $scope.total=0;
+                for (var i = 0; i < panier.length; i++) {
+                    console.log(panier[i]);
+                     $scope.total = $scope.total+ (panier[i].prix*panier[i].qt);
+                }
 
+            }).then(function successCallback(response) {
+          
             })
 // remove article du panier
             $scope.removeArticle = function (id, $index) {

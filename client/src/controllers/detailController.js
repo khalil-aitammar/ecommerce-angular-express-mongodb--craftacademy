@@ -10,8 +10,11 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
     }).then(function successCallback(response) {
         $scope.film = response;
         $scope.film = $scope.film.data;
+        $cookieStore.put('myfilm', $scope.film);
+
+
     })
-    
+
 // ajouter dans le panier de l'utilisateur
     $scope.ajoutpanier = function () {
         trouver = false;
@@ -21,10 +24,12 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
             var idfilm = {
                 _id: filmid,
                 qt: $scope.qt,
-                titre:$scope.film.titre,
-                description:$scope.film.description,
-                url_img:$scope.film.url_img,
-                prix:$scope.film.prix,
+                titre: $scope.film.titre,
+                description: $scope.film.description,
+                url_img: $scope.film.url_img,
+                prix: $scope.film.prix,
+                resD:$scope.dt,
+                resF:$scope.dt2
             };
 
             $http({
@@ -38,17 +43,17 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
                 for (var i = 0; i < panier.articles.length; i++) {
 
                     if (panier.articles[i]._id == idfilm._id) {
-                         trouver = true;
+                        trouver = true;
                         console.log('trouver', trouver);
                     }
 
                 }
-                
+
             }).then(function successCallback(response) {
                 console.log('after trouver', trouver);
                 if (trouver == true) {
                     toastr.success(' modification du film' + $scope.film.titre, 'success!');
-                  
+
                     $http({
                         method: 'PUT',
                         url: '/api/panier/' + iduser,
@@ -86,12 +91,12 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
 
     // calendrier
     $scope.isCollapsed = true;
-    $scope.today = function() {
+    $scope.today = function () {
         $scope.dt = new Date();
     };
     $scope.today();
 
-    $scope.clear = function() {
+    $scope.clear = function () {
         $scope.dt = null;
     };
 
@@ -108,28 +113,39 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
         return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
     }
 
-    $scope.toggleMin = function() {
+    $scope.toggleMin = function () {
         $scope.options.minDate = $scope.options.minDate ? null : new Date();
     };
 
     $scope.toggleMin();
 
-    $scope.setDate = function(year, month, day) {
+    $scope.setDate = function (year, month, day) {
         $scope.dt = new Date(year, month, day);
     };
+    function getd() {
 
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    var afterTomorrow = new Date(tomorrow);
-    afterTomorrow.setDate(tomorrow.getDate() + 1);
+        var kha = $cookieStore.get('myfilm');
+        return kha.dateresD;
+    }
+    function getf() {
+
+        var kha = $cookieStore.get('myfilm');
+        return kha.dateresF;
+    }
+
+    var tomorrow = getd();
+    console.log('ddd', tomorrow);
+
+    var afterTomorrow = getf();
+
     $scope.events = [
         {
             date: tomorrow,
-
+            status: 'full'
         },
         {
             date: afterTomorrow,
-
+            status: 'full'
         }
     ];
 
@@ -137,10 +153,10 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
         var date = data.date,
             mode = data.mode;
         if (mode === 'day') {
-            var dayToCheck = new Date(date).setHours(0,0,0,0);
+            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
 
             for (var i = 0; i < $scope.events.length; i++) {
-                var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
+                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
 
                 if (dayToCheck === currentDay) {
                     return $scope.events[i].status;
@@ -151,10 +167,9 @@ app.controller('detailController', function ($scope, $http, $routeParams, $cooki
         return '';
     }
 
-    $scope.reservation= function () {
-    console.log('new data',$scope.dt);
-}
-
+    $scope.reservation = function () {
+        console.log('new data', $scope.dt);
+    }
 
 
 });

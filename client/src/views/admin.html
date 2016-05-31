@@ -1,5 +1,8 @@
 <div ng-controller="adminController">
-
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li class="active"> admin dashboard</li>
+    </ol>
 
     <div class="row">
 
@@ -83,7 +86,8 @@
         </button>
 
         <div class="allarticle">
-            <div ng-repeat="x in film  | filter : myvar" class="{{x | columns:6:$index}} blocarticle">
+            <div ng-repeat="x in film | filter : myvar | startfrom:(currentPage - 1)* pageSize |limitTo:pageSize"
+                 class="{{x | columns:6:$index}} blocarticle">
                 <div class="article">
                     <a href="/#/detail{{x._id}}">
                         <p class="list-group-item">{{x.titre}}</p>
@@ -104,6 +108,7 @@
                     </a>
                 </div>
             </div>
+            <uib-pagination total-items="film.length" ng-model="currentPage" items-per-page="pageSize" class="pagination-sm" boundary-link-numbers="true"></uib-pagination>
         </div>
     </div>
 </div>

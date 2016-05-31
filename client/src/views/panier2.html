@@ -1,6 +1,10 @@
 <div ng-controller="panier2Controller">
 
-
+    <div class="panel panel-default">
+        <div class="panel-body">
+            total dans le panier <b>{{total}}</b> <img src="https://maxcdn.icons8.com/Color/PNG/48/Business/bank_euro-48.png" title="Bank Euro" width="48">
+        </div>
+    </div>
     <div class="allarticle">
         <div ng-repeat="x in panierfilm | filter : myvar" class="{{x | columns:6:$index}} blocarticle">
             <div class="article">

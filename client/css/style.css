@@ -98,6 +98,11 @@ display: inline-block;
 
 }
 
+.panel-default > .panel-heading {
+    color: #fef9ff;
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
 .article {
     max-height: 245px;
     max-width: 125px;
@@ -135,8 +140,11 @@ display: inline-block;
 a:link {
     text-decoration:none;
 }
+.panel-body{
+    background-color: white;
+}
 .panierdiscription{
-    margin-top: 150px;
+    margin-top: 30px;
 }
 .allarticle{
     margin-left: 15px;
@@ -490,6 +498,7 @@ a:link {
 }
 
 .buttondetail {
+    margin-left: 100px;
     display: inline-block;
     border-radius: 4px;
     background-color: #f4511e;
@@ -501,7 +510,7 @@ a:link {
     width: 210px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+
 }
 
 .buttondetail span {

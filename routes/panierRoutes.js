@@ -40,7 +40,7 @@ var routes = function (Panier) {
                 if (err) {
                     res.json({"success": false, "message": "Panier not found"});
                 } else {
-                    console.log('panier route',Panier.articles);
+                    console.log('panier route',Panier.articles, req.params);
 
                     Panier.articles.push({
                         _id: req.body._id,
@@ -49,6 +49,8 @@ var routes = function (Panier) {
                         description:req.body.description,
                         prix:req.body.prix,
                         url_img:req.body.url_img,
+                        resD:req.body.resD,
+                        resF:req.body.resF
                     });
                     Panier.save(function (err) {
                         if (err) return handleError(err)

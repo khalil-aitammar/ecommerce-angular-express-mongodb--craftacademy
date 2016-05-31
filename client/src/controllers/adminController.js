@@ -1,5 +1,8 @@
 'use strict';
 app.controller('adminController', function ($scope, $http, $window, $cookieStore, toastr, $location,$filter) {
+
+    $scope.pageSize=14;
+    $scope.currentPage=1;
     // jquery pour video la page
 
     $(".bloctop").hide();
