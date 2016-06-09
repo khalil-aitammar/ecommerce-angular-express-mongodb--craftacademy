@@ -12,5 +12,6 @@ npm install
 
 démarrer l'application
 -----
+la base de donnée est sur le cloud
 gulp
 ```
